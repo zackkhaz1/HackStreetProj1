@@ -7,8 +7,8 @@ public:
 Board();
 ~Board();
 void setPos(xPos,yPos,val);
-int getPos(xPos,yPos);
+char getPos(xPos,yPos);
 private:
-int ship_Board[8][8];
-int shot_Board[8][8];
+char ship_Board[8][8];
+char shot_Board[8][8];
 
