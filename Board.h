@@ -8,7 +8,7 @@ Board();
 ~Board();
 void setPos(xPos,yPos,val);
 char getPos(xPos,yPos);
-printBoard();
+void printBoard();
 private:
 char map[8][8];
 
