@@ -4,6 +4,5 @@
 
 int main()
   {
-    Board testBoard;
-    testBoard.printBoard();
+    cout << "Test compile" << endl;
   }
