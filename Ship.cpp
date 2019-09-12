@@ -1,5 +1,9 @@
 #include "Ship.h"
-Ship::Ship(int ShipSize){
+
+
+
+Ship::Ship(int ShipSize)
+{
 	size = ShipSize;
 	orientation = 'h';
 	sunk = false;
@@ -8,32 +12,39 @@ Ship::Ship(int ShipSize){
 
 
 
-int Ship::getSize(){
+int Ship::getSize()
+{
 	return(size);
 }
 
 
-void Ship::setOrientation(char vh){
+void Ship::setOrientation(char vh) //Vertical/Horizontal
+{
 	orientation = vh;
 }
 
-char Ship::getOrientation(){
+char Ship::getOrientation()
+{
 	return(orientation);
 }
 
-void Ship::setSunk(bool tf){
+void Ship::setSunk(bool tf) //True/false
+{
 	sunk = tf;
 }
 
-bool Ship::isSunk(){
+bool Ship::isSunk()
+{
 	return(sunk);
 }
 
-void Ship::addHit(){
+void Ship::addHit()
+{
 	hits++;
 }
 
-int Ship::getHits(){
+int Ship::getHits()
+{
 	return(hits);
 }
 
