@@ -10,11 +10,11 @@ for(int r=0; r<8; r++)
   }
 }
 }
-void Board::setPos(xPos,yPos,val)
+void Board::setPos(int xPos,int yPos, char val)
 {
   map[xPos,yPos] = val;
 }
-char Board::getPos(xPos,yPos)
+char Board::getPos(int xPos,int yPos)
 {
   return(map,xPos,yPos);
 }
