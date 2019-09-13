@@ -1,3 +1,4 @@
+#include "Board.h"
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -6,8 +7,8 @@ using namespace std;
 class Player
   {
   public:
-    ~Player(int numShips);
-    Player();
+    ~Player();
+    Player(int numShips);
     void placeShips(int xPos, int yPos, char orientation); //Method to place ships on board
     void fireShot(int xPos, int yPos); //Fires shots at enemy
 
