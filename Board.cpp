@@ -2,6 +2,11 @@
 #include <iostream>
 using namespace std;
 
+Board::~Board()
+  {
+    
+  }
+
 Board::Board()
 {
   for(int r=0; r<8; r++)
