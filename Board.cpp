@@ -12,11 +12,11 @@ for(int r=0; r<8; r++)
 }
 void Board::setPos(int xPos,int yPos, char val)
 {
-  map[xPos,yPos] = val;
+  map[xPos][yPos] = val;
 }
 char Board::getPos(int xPos, int yPos)
 {
-  return(map,xPos,yPos);
+  return(xPos,yPos);
 }
 void printBoard()
 {
