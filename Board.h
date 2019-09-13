@@ -11,6 +11,6 @@ char getPos(int xPos, int yPos);
 void printBoard();
 private:
 char map[8][8];
-
 };
 #endif
+
