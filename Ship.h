@@ -5,7 +5,7 @@ using namespace std;
 class Ship
 {
 public:
-Ship();
+Ship(int ShipSize);
 ~Ship();
 void setSize(int val);
 int getSize();

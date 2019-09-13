@@ -1,7 +1,6 @@
 #include "Ship.h"
 
 
-
 Ship::Ship(int ShipSize)
 {
 	size = ShipSize;
