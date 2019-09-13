@@ -6,9 +6,9 @@ using namespace std;
 class Player
   {
   public:
-    ~Player();
+    ~Player(int numShips);
     Player();
-    void placeShips(int xPos, int yPos); //Method to place ships on board
+    void placeShips(int xPos, int yPos, char orientation); //Method to place ships on board
     void fireShot(int xPos, int yPos); //Fires shots at enemy
 
   private:
