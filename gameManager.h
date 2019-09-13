@@ -15,6 +15,7 @@ class gameManager
     Player p2;
     bool start; //will signify if gameLoop should be started and menu is left
     bool gameOver; //marks if game has been completed.
+    string PlayerShot;
     void playerMenu(); //main menu display where number of ships will be chosen/pre-game
     void setPlayerShips(Player name, int numOfShips);
     void gameLoop();   //game loop that runs until somone wins, loses or the game breaks.
