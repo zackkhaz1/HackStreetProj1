@@ -4,7 +4,7 @@ gameManager::gameManger()
 {
 start = false;
 gameOver = false;
-
+run();
 }
 gameManger::~gameManager()
 {
@@ -31,11 +31,11 @@ void gameManager::playerMenu()
         }
      else if(PlayerChoice == 2)
        {
-          
+
        }
     else if(playerChoice == 3)
        {
-	 
+
        }
     else
       {
@@ -54,21 +54,15 @@ void gameManager::gameLoop()
     playerTurn(p2);
 }
 }
-void gameManager::setHit(int xPos, int yPos)
-{
-
-}
-void gameManager::setMiss(int xPos, int yPos)
-{
-
-}
 void gameManager::playerTurn(Player p)
 {
 int xVal =0;
+int yVal =0;
 char xTemp = ' ';
 cout << "Enter space to fire at: "
 cin >> playerShot;
 xTemp = playerShot.charAt(0);
+yVal = playerShot.charAt(1);
     switch (xTemp)
 	{
            case 'a':
@@ -78,7 +72,7 @@ xTemp = playerShot.charAt(0);
 		xVal = 2;
 		break;
            case 'c':
-		xVal = 3;
+		xVal = 3;			//switch block transforms first char in input string from the player into integer value.
 		break;
 	   case 'd':
 		xVal = 4;
@@ -99,6 +93,7 @@ xTemp = playerShot.charAt(0);
 		cout <<"Choice Out of Bounds!\n";
 		break;
 	}
+p.fireShot(xPos,yPos);
 
 
 }
