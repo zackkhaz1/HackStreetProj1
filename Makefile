@@ -1,5 +1,5 @@
 Battleship: main.o Board.o Ship.o Player.o
-		g++ -std=c++11 -g -Wall main.o Board.o Ship.o Player.o -o Battleship
+		g++ -std=c++11 -g -Wall main.o Board.o Ship.o Player.o -o Battleship 
 main.o: main.cpp Player.o
 		g++ -std=c++11 -g -Wall -c main.cpp
 Player.o: Player.h Player.cpp
