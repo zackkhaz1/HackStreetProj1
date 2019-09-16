@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
   {
-    gameManager g1();
+    gameManager g1;
+    g1.run();
     cout << "Test compile" << endl;
   }

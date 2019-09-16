@@ -7,6 +7,7 @@ class Ship
 {
 public:
   Ship(int ShipSize);
+  Ship();
   ~Ship();
   void setSize(int val);
   int getSize();
