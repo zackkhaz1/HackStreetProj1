@@ -9,7 +9,7 @@ Player::Player(int numShips)
       Ship myShips[numShips];
       for (int i = 1; i <= numShips; i++)
       {
-        //myShips[i-1] = Ship(i); Not sure what this line means/does -zack
+        myShips[i-1] = Ship tempShip(i);
       }
       ownShips = myShips;
       placeShips();
@@ -35,7 +35,8 @@ void Player::placeShips()
   {
     for(int i = 0; i < numShips; i++)
     {
-      //ownShips[i].placeShip(); placeShip is member of player class not ship class -zack
+      cout<<"Placing Ship of Size: "<<(i+1)<<"\nPlease input coordinates and orientation: "
+      ownShips[i].setHeadPos(int xPos, int yPos);
     }
   }
 void Player::fireShot(int xPos, int yPos)
@@ -51,6 +52,18 @@ void Player::fireShot(int xPos, int yPos)
       enemyBoard.setPos(xPos,yPos,'m');//m represents a miss that landed in water.
 
     }
+}
+
+void Player::receiveHit(int xPos, int yPos)
+{
+  for (int i = 0; i < numShips; i++)
+  {
+    if (ownShips[i].coordCheck(xPos, yPos))
+    {
+      ownShips[i].addHit();
+      break;
+    }
+  }
 }
 
 bool Player::isDead()
