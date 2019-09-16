@@ -25,14 +25,11 @@ Board Player::getBoard(char choice)
   {
     return(ownBoard);
   }
-  else if(choice == 'e') //if choice is enemy board, return enemy board.
+  else //if choice is enemy board, return enemy board.
   {
     return(enemyBoard);
   }
-  else
-  {
-    return(ownBoard);
-  }
+
 }
 void Player::placeShips()
   {
@@ -44,6 +41,16 @@ void Player::placeShips()
 void Player::fireShot(int xPos, int yPos)
 {
 
+    if(enemyBoard.getPos(xPos,yPos) == 's') //where s represents a ships presence.
+    {
+        enemyBoard.setPos(xPos,yPos, 'h');//h represents a ship turned into a hit
+    }
+    else if(enemyBoard.getPos(xPos,yPos) == 'w')//w represents empty water
+    {
+
+      enemyBoard.setPos(xPos,yPos,'m');//m represents a miss that landed in water.
+
+    }
 }
 
 bool Player::isDead()
