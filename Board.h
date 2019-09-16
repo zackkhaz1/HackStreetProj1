@@ -1,5 +1,6 @@
 #ifndef BOARD_H
 #define BOARD_H
+#include "Ship.h"
 #include <iostream>
 
 using namespace std;

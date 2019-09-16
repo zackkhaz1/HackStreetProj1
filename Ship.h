@@ -29,3 +29,10 @@ private:
   int headYPos;
 };
 #endif
+
+
+/*
+TODO:
+figure out how ship object will be constructed, I think
+using a setSize will be better
+*/
