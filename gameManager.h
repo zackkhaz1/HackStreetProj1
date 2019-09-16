@@ -8,9 +8,10 @@ class gameManager
   public:
     gameManager();
     ~gameManager();
-    void run(); //method that will be called from main.cpp to run rest of class.   
+    void run(); //method that will be called from main.cpp to run rest of class.
 
   private:
+    player winner; //who won the game when it's over
     Player p1;
     Player p2;
     bool start; //will signify if gameLoop should be started and menu is left
@@ -22,7 +23,7 @@ class gameManager
     void setHit(int xPos, int yPos);     //sets hit markers on hit/miss board.
     void setMiss(int xPos, int yPos);    //sets miss markers on hit/miss board..
     void playerTurn(Player p);
-    
-    
+
+
 };
 #endif

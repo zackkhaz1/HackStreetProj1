@@ -9,6 +9,4 @@ int main()
   {
     gameManager g1();
     cout << "Test compile" << endl;
-    Board testBoard;
-    testBoard.printBoard();
   }
