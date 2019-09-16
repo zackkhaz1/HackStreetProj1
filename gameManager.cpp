@@ -22,9 +22,9 @@ if(start == true)
 }
 void gameManager::playerMenu()
 {
+  int tempShips = 5;
   while(start != true)
     {
-      int tempShips = 5;
       cout << "===WELCOME TO BATTLESHIP!====\n========Select Number and Hit Enter to Choose Option===========\n1.) Start Game\n 2.)Rules\n3.)Close Game\n===============================================\n";
       cin >> playerChoice;
       if(playerChoice == 1)
