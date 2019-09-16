@@ -1,7 +1,7 @@
 #include "Ship.h"
 Ship::Ship()
 {
-	
+
 }
 
 Ship::Ship(int ShipSize)
@@ -48,6 +48,12 @@ void Ship::addHit()
 int Ship::getHits()
 {
 	return(hits);
+}
+
+void Ship::setHeadPos(int xPos, int yPos)
+{
+	headXPos = xPos;
+	headYPos = yPos;
 }
 
 Ship::~Ship(){
