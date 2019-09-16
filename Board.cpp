@@ -4,7 +4,7 @@ using namespace std;
 
 Board::~Board()
   {
-    
+
   }
 
 Board::Board()
@@ -13,18 +13,18 @@ Board::Board()
   {
     for(int c=0; c<8; c++)
     {
-      map[r][c]='w';
+      mapp[r][c]='w';
     }
   }
 }
 
 void Board::setPos(int xPos,int yPos, char val)
   {
-    map[xPos][yPos] = val;
+    mapp[xPos][yPos] = val;
   }
 char Board::getPos(int xPos, int yPos)
   {
-    return(xPos,yPos);
+    return( mapp[xPos][yPos] );
   }
 
 void Board::printBoard()
@@ -34,7 +34,7 @@ void Board::printBoard()
   {
     for(int c=0; c<8; c++)
     {
-      cout << map[r][c] << " ";
+      cout << mapp[r][c] << " ";
     }
     cout << "\n";
   }

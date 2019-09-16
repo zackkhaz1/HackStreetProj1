@@ -11,8 +11,8 @@ Board();
 ~Board();
 void setPos(int xPos,int yPos, char val);
 char getPos(int xPos, int yPos);
-void printBoard();
+void printBoard(); // w = water; s = ship; h = hit; m = miss;
 private:
-char map[8][8];
+char mapp[8][8];
 };
 #endif

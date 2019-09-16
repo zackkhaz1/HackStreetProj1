@@ -1,5 +1,8 @@
 #include "Player.h"
+Player::Player()
+{
 
+}
 Player::Player(int numShips)
   {
 
@@ -12,7 +15,22 @@ Player::Player(int numShips)
       placeShips();
 
   }
+Player::~Player()
+{
 
+}
+Board Player::getBoard(char choice)
+{
+  if(choice == 'o')//if choice is own board, return own board.
+  {
+    return(ownBoard);
+  }
+  else //if choice is enemy board, return enemy board.
+  {
+    return(enemyBoard);
+  }
+
+}
 void Player::placeShips()
   {
     for(int i = 0; i < numShips; i++)
@@ -20,6 +38,20 @@ void Player::placeShips()
       //ownShips[i].placeShip(); placeShip is member of player class not ship class -zack
     }
   }
+void Player::fireShot(int xPos, int yPos)
+{
+
+    if(enemyBoard.getPos(xPos,yPos) == 's') //where s represents a ships presence.
+    {
+        enemyBoard.setPos(xPos,yPos, 'h');//h represents a ship turned into a hit
+    }
+    else if(enemyBoard.getPos(xPos,yPos) == 'w')//w represents empty water
+    {
+
+      enemyBoard.setPos(xPos,yPos,'m');//m represents a miss that landed in water.
+
+    }
+}
 
 bool Player::isDead()
 {
