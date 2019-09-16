@@ -7,4 +7,6 @@ using namespace std;
 int main()
   {
     cout << "Test compile" << endl;
+    Board testBoard;
+    testBoard.printBoard();
   }
