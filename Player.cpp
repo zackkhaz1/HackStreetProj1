@@ -33,9 +33,25 @@ Board Player::getBoard(char choice)
 }
 void Player::placeShips()
   {
+    chat tempOrient = '';
+    string tempCoord = "";
     for(int i = 0; i < numShips; i++)
     {
-      cout<<"Placing Ship of Size: "<<(i+1)<<"\nPlease input coordinates and orientation: "
+      cout<<"Placing Ship of Size: "<<(i+1);
+      while (tempOrient != 'h' && tempOrient != 'v')
+      {
+      cout<<"\nPlease input an orientation (v for Vertical or h for Horizontal): ";
+      cin>>tempOrient;
+      if (tempOrient != 'h' && tempOrient != 'v')
+        {
+          cout<"Pick a valid option this time.\n";
+        }
+      }
+      cout<<"Now input coordinates for the front of the ship's position: ";
+      cin>>tempCoord;
+      char xTemp = tempCoord.at(0);
+      int yPos = tempCoord.at(1);
+      
       ownShips[i].setHeadPos(int xPos, int yPos);
     }
   }

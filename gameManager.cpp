@@ -92,6 +92,10 @@ p.getBoard('o').printBoard(); //'o' represents "own board"
 cout<<"\nTARGET BOARD: \n";
 p.getBoard('e').printBoard(); //'e' represents "enemy board"
 cout << '\n';
+do
+{
+bool validX = true;
+bool validY = true;
 int xVal =0;
 int yVal =0;
 char xTemp = ' ';
@@ -128,7 +132,8 @@ yVal = playerShot.at(1);
 		xVal = 7;
 		break;
 	         default:
-		cout <<"Choice Out of Bounds!\n";
+		cout <<"X Position Out of Bounds!\n";
+    validX = false;
 		break;
   }
     switch (yVal)
@@ -158,10 +163,12 @@ yVal = playerShot.at(1);
 		yVal = 7;
 		break;
 	         default:
-		cout <<"Choice Out of Bounds!\n";
+		cout <<"Y Position Out of Bounds!\n";
+    validY = false;
 		break;
 	}
-
+}
+while (!validX || !validY);
 p.fireShot(xVal,yVal);
 cout<<"TARGET BOARD: \n";
 p.getBoard('e').printBoard();
