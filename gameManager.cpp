@@ -20,45 +20,69 @@ if(start == true)
 }
 void gameManager::playerMenu()
 {
-  int playerChoice=0;
   while(start != true)
     {
-
+      int tempShips = 5;
       cout << "===WELCOME TO BATTLESHIP!====\n========Select Number and Hit Enter to Choose Option===========\n1.) Start Game\n 2.)Rules\n3.)Close Game\n===============================================\n";
       cin >> playerChoice;
       if(playerChoice == 1)
         {
+          cout<<"Game Starting!\n";
+          Player p1(tempShips);
+          Player p2(tempShips);
            start = true;
         }
-     else if(playerChoice == 2)
+     else if(PlayerChoice == 2)
        {
-
+          cout<<"Current Ruleset: Number of ships = "<<tempShips<<"\nPlease input new number of ships to play (must be between 1 and 5): ";
+          cin>>tempShips;
+          if (tempShips < 1)
+          {
+            tempShips = 1;
+          }
+          else if (tempShips > 5)
+          {
+            tempShips = 5;
+          }
+          cout<<"New Ruleset: "<<tempShips<<" ships per game.";
        }
     else if(playerChoice == 3)
        {
-
+         cout<<"Thanks for playing!";
+         break;
        }
     else
       {
         cout << "Invalid Menu Choice! Please Choose Again.\n";
       }
     }
-
+  gameLoop();
 }
 void gameManager::gameLoop()
 {
   string s = "";
-  while(gameOver != true)
+  while(!p1.isDead() && !p2.isDead())
   {
     cout<< "=======================\nPlayer One: it's your turn!\n=======================";
     playerTurn(p1);
+    if (p2.isDead())
+    {
+      gameOver(p1);
+      break;
+    }
     cout << "Press any key(AND ENTER) to begin Player 2's turn: \n"; //dont know how to make accept just keypress.
     cin >> s;
     cout<< "=======================\nPlayer Two: it's your turn!\n=======================";
     playerTurn(p2);
+    if (p1.isDead())
+    {
+      gameOver(p2);
+      break;
+    }
     cout << "Press any key(AND ENTER) to begin Player 1's turn: \n"; //same as comment above. (WIP)
     cin >> s;
-}
+  }
+  playerMenu();
 }
 void gameManager::playerTurn(Player p)
 {
@@ -143,4 +167,22 @@ cout<<"TARGET BOARD: \n";
 p.getBoard('e').printBoard();
 
 
+}
+
+void gameManager::gameOver(Player winner)
+{
+  cout<<"============\nGAME OVER\n============\n";
+  switch (winner)
+  {
+    case (p1)
+    cout<<"Player 1 Wins!\n";
+    break;
+
+    case (p2)
+    cout<<"Player 2 Wins!\n";
+    break;
+
+    default
+    cout<<"Whoops!  Something's not right here.\n";
+  }
 }
