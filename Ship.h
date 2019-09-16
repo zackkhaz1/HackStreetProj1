@@ -1,3 +1,4 @@
+
 #ifndef SHIP_H
 #define SHIP_H
 
@@ -15,12 +16,16 @@ public:
   bool isSunk();
   void addHit();
   int getHits();
+  void setHeadPos(int xPos, int yPos);
+  int getHeadXPos();
+  int getHeadYPos();
 
 private:
   int size;
   char orientation;
   bool sunk;
   int hits;
-
+  int headXPos;
+  int headYPos;
 };
 #endif
