@@ -17,17 +17,18 @@ public:
   bool isSunk();
   void addHit();
   int getHits();
-  void setHeadPos(int xPos, int yPos);
-  int getHeadXPos();
-  int getHeadYPos();
+  void setPositions(int xPos, int yPos);
+  int getXPositions();
+  int getYPositions();
+  bool coordCheck(int xPos, int yPos);
 
 private:
   int size;
   char orientation;
   bool sunk;
   int hits;
-  int headXPos;
-  int headYPos;
+  int* xPositions; //Points to an array of the X postions of each segment of the ship
+  int* yPositions; //Points to an array of the Y postions of each segment of the ship
 };
 #endif
 
