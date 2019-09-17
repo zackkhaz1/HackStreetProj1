@@ -3,7 +3,6 @@ using namespace std;
 gameManager::gameManager()
 {
 start = false;
-gameOver = false;
 run();
 }
 gameManager::~gameManager()
@@ -34,7 +33,7 @@ void gameManager::playerMenu()
           Player p2(tempShips);
            start = true;
         }
-     else if(PlayerChoice == 2)
+     else if(playerChoice == 2)
        {
           cout<<"Current Ruleset: Number of ships = "<<tempShips<<"\nPlease input new number of ships to play (must be between 1 and 5): ";
           cin>>tempShips;
@@ -183,7 +182,7 @@ yVal = playerShot.at(1);
   }
 }
 while (!validX || !validY);
-if(p.fireShot(xVal,yVal))
+if(p.fireShot(xVal,yVal, opponent))
 {
   opponent.receiveHit(xVal, yVal);
 }
@@ -196,17 +195,14 @@ p.getBoard('e').printBoard();
 void gameManager::gameOver(Player winner)
 {
   cout<<"============\nGAME OVER\n============\n";
-  switch (winner)
   {
-    case (p1)
+    if (winner == p1)
     cout<<"Player 1 Wins!\n";
-    break;
 
-    case (p2)
+    else if (winner == p2)
     cout<<"Player 2 Wins!\n";
-    break;
 
-    default
+    else
     cout<<"Whoops!  Something's not right here.\n";
   }
 }
