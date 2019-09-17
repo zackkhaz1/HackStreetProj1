@@ -28,7 +28,9 @@ void gameManager::playerMenu()
       if(playerChoice == 1)
         {
           cout<<"Game Starting!\n";
+          cout<<"Setting up Player 1...\n";
           Player p1(tempShips);
+          cout<<"Setting up Player 2...\n";
           Player p2(tempShips);
            start = true;
         }
@@ -42,6 +44,11 @@ void gameManager::playerMenu()
           }
           else if (tempShips > 5)
           {
+            tempShips = 5;
+          }
+          else
+          {
+            cout<<"ERROR: Invalid Input!\n";
             tempShips = 5;
           }
           cout<<"New Ruleset: "<<tempShips<<" ships per game.";
@@ -64,7 +71,7 @@ void gameManager::gameLoop()
   while(!p1.isDead() && !p2.isDead())
   {
     cout<< "=======================\nPlayer One: it's your turn!\n=======================";
-    playerTurn(p1);
+    playerTurn(p1, p2);
     if (p2.isDead())
     {
       gameOver(p1);
@@ -73,7 +80,7 @@ void gameManager::gameLoop()
     cout << "Press any key(AND ENTER) to begin Player 2's turn: \n"; //dont know how to make accept just keypress.
     cin >> s;
     cout<< "=======================\nPlayer Two: it's your turn!\n=======================";
-    playerTurn(p2);
+    playerTurn(p2, p1);
     if (p1.isDead())
     {
       gameOver(p2);
@@ -84,7 +91,7 @@ void gameManager::gameLoop()
   }
   playerMenu();
 }
-void gameManager::playerTurn(Player p)
+void gameManager::playerTurn(Player p, Player opponent)
 {
 cout << '\n';
 cout<<"YOUR BOARD: \n";
@@ -169,7 +176,10 @@ yVal = playerShot.at(1);
 	}
 }
 while (!validX || !validY);
-p.fireShot(xVal,yVal);
+if(p.fireShot(xVal,yVal))
+{
+  opponent.receiveHit(xVal, yVal);
+}
 cout<<"TARGET BOARD: \n";
 p.getBoard('e').printBoard();
 
