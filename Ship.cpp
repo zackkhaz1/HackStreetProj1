@@ -1,7 +1,7 @@
 #include "Ship.h"
 Ship::Ship()
 {
-	
+
 }
 
 Ship::Ship(int ShipSize)
@@ -73,6 +73,18 @@ void Ship::setPositions(int xPos, int yPos)
 
 	xPositions = xPosArr;//point xPositions member variable to xPosArr
 	yPositions = yPosArr;//point yPositions member variable to yPosArr
+}
+
+bool Ship::coordCheck(int xPos, int yPos)
+{
+	for(int i = 0; i < size; i++)
+	{
+		if(xPos == xPositions[i] && yPos == yPositions[i])
+		{
+			return(true);//returns true if the coordinates given are equal to a ship's segment coordinates
+		}
+	}
+	return(false);//returns false if coordinates given are not part of the ship
 }
 
 Ship::~Ship(){
