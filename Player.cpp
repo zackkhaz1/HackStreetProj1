@@ -3,11 +3,11 @@ Player::Player()
 {
 
 }
-Player::Player(int numShips)
+Player::Player(int shipNums)
   {
-
-      Ship myShips[numShips];
-      for (int i = 1; i <= numShips; i++)
+      numShips = shipNums;
+      Ship myShips[shipNums];
+      for (int i = 1; i <= shipNums; i++)
       {
         Ship tempShip(i);
         myShips[i-1] = tempShip;
@@ -163,11 +163,12 @@ bool Player::isDead()
   bool tempDead = true;
   for (int i = 0; i < numShips; i++)
   {
+    cout<<"is dead " << i;
     if (ownShips[i].isSunk() == false)
     {
+
       tempDead = false;
     }
   }
   return tempDead;
 }
-
