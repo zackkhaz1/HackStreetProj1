@@ -62,6 +62,7 @@ void gameManager::playerMenu()
 }
 void gameManager::gameLoop()
 {
+  int tempShips =5;
   cout<<"Game Starting!\n";
   cout<<"Setting up Player 1...\n";
   Player p1(tempShips);
