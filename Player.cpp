@@ -33,7 +33,7 @@ Board Player::getBoard(char choice)
 }
 void Player::placeShips()
   {
-    chat tempOrient = '';
+    char tempOrient = '';
     string tempCoord = "";
     for(int i = 0; i < numShips; i++)
     {
@@ -47,12 +47,85 @@ void Player::placeShips()
           cout<"Pick a valid option this time.\n";
         }
       }
-      cout<<"Now input coordinates for the front of the ship's position: ";
-      cin>>tempCoord;
-      char xTemp = tempCoord.at(0);
-      int yPos = tempCoord.at(1);
-      
-      ownShips[i].setHeadPos(int xPos, int yPos);
+      do
+      {
+      bool validX = true;
+      bool validY = true;
+      int xVal =0;
+      int yVal =0;
+      char xTemp = ' ';
+      string playerShot = "";
+      cout<<"Input a position for the front of the ship: ";
+      cin >> playerShot;
+      xTemp = playerShot.at(0);
+      yVal = playerShot.at(1);
+
+          switch (xTemp)
+      	{
+                 case 'a':
+      		xVal = 0;
+      		break;
+      	         case 'b':
+      		xVal = 1;
+      		break;
+                 case 'c':
+      		xVal = 2;			//switch block transforms first char in input string from the player into integer value.
+      		break;
+      	         case 'd':
+      		xVal = 3;
+      		break;
+                 case 'e':
+      		xVal = 4;
+      		break;
+      	         case 'f':
+      		xVal = 5;
+      		break;
+                 case 'g':
+      		xVal = 6;
+      		break;
+      	         case 'h':
+      		xVal = 7;
+      		break;
+      	         default:
+      		cout <<"X Position Out of Bounds!\n";
+          validX = false;
+      		break;
+        }
+          switch (yVal)
+      	{
+                 case '1':
+      		yVal = 0;
+      		break;
+      	         case '2':
+      		yVal = 1;
+      		break;
+                 case '3':
+      		yVal = 2;			//switch block transforms second char into integer value for grid.
+      		break;
+      	         case '4':
+      		yVal = 3;
+      		break;
+                 case '5':
+      		yVal = 4;
+      		break;
+      	         case '6':
+      		yVal = 5;
+      		break;
+                 case '7':
+      		yVal = 6;
+      		break;
+      	         case '8':
+      		yVal = 7;
+      		break;
+      	         default:
+      		cout <<"Y Position Out of Bounds!\n";
+          validY = false;
+      		break;
+      	}
+      }
+      while (!validX || !validY);
+      ownShips[i].setOrientation(tempOrient);
+      ownShips[i].setPositions(xVal, yVal);
     }
   }
 void Player::fireShot(int xPos, int yPos)
