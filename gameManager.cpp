@@ -176,7 +176,7 @@ yVal = playerShot.at(1);
     validY = false;
 		break;
 	}
-  if (p.getBoard(e).getPos(xVal, yVal) == 'm' || p.getBoard(e).getPos(xVal, yVal) == 'h')
+  if (p.getBoard('e').getPos(xVal, yVal) == 'm' || p.getBoard('e').getPos(xVal, yVal) == 'h')
   {
     validX = false;
     validY = false;

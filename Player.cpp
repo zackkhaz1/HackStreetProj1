@@ -45,7 +45,7 @@ void Player::placeShips()
       cin>>tempOrient;
       if (tempOrient != 'h' && tempOrient != 'v')
         {
-          cout<"Pick a valid option this time.\n";
+          cout<<"Pick a valid option this time.\n";
         }
       }
       int xVal =0;
@@ -134,12 +134,12 @@ void Player::placeShips()
 bool Player::fireShot(int xPos, int yPos, Player target)
 {
 
-    if(target.getBoard(o).getPos(xPos,yPos) == 's') //where s represents a ships presence.
+    if(target.getBoard('o').getPos(xPos,yPos) == 's') //where s represents a ships presence.
     {
         enemyBoard.setPos(xPos,yPos, 'h');//h represents a ship turned into a hit
         return true;
     }
-    else if(target.getBoard(o).getPos(xPos,yPos) == 'w')//w represents empty water
+    else if(target.getBoard('o').getPos(xPos,yPos) == 'w')//w represents empty water
     {
       enemyBoard.setPos(xPos,yPos,'m');//m represents a miss that landed in water.
       return false;
@@ -170,3 +170,4 @@ bool Player::isDead()
   }
   return tempDead;
 }
+
