@@ -43,19 +43,18 @@ void gameManager::playerMenu()
         }
      else if(playerChoice == 2)
        {
-          cout << "Current Ruleset: Number of ships = "<< numOfShips << endl;
-          cout << "Please input new number of ships to play (must be between 1 and 5): " << endl;
+         do{
+            cout << "Please input new number of ships to play (must be between 1 and 5): " << endl;
+            cin >> numOfShips;
 
-          cin >> numOfShips;
-          if (numOfShips < 1 || numOfShips > 5)
-          {
-            cout<<"ERROR: Invalid Input!\n";
-          }
-          else if (!(numOfShips < 1 || numOfShips > 5))
-          {
-            cout<< "Number of ships in game: " << numOfShips << endl;
+            if (numOfShips < 1 || numOfShips > 5)
+            {
+              cout<<"ERROR: Invalid Input!\n";
+            }
+          } while(numOfShips < 1 || numOfShips > 5);
 
-          }
+        cout<< "Number of ships in game: " << numOfShips << endl;
+
        }
     else if(playerChoice == 3)
        {
