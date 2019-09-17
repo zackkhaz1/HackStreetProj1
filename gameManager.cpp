@@ -101,10 +101,12 @@ p.getBoard('e').printBoard(); //'e' represents "enemy board"
 cout << '\n';
 int xVal =0;
 int yVal =0;
-do
-{
 bool validX = true;
 bool validY = true;
+do
+{
+validX = true;
+validY = true;
 char xTemp = ' ';
 string playerShot = "";
 cout << "Enter space to fire at: ";

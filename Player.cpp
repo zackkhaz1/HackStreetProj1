@@ -9,7 +9,8 @@ Player::Player(int numShips)
       Ship myShips[numShips];
       for (int i = 1; i <= numShips; i++)
       {
-        myShips[i-1] = Ship tempShip(i);
+        Ship tempShip(i);
+        myShips[i-1] = tempShip;
       }
       ownShips = myShips;
       placeShips();
@@ -33,7 +34,7 @@ Board Player::getBoard(char choice)
 }
 void Player::placeShips()
   {
-    char tempOrient = '';
+    char tempOrient = '$';
     string tempCoord = "";
     for(int i = 0; i < numShips; i++)
     {
@@ -49,10 +50,12 @@ void Player::placeShips()
       }
       int xVal =0;
       int yVal =0;
-      do
-      {
       bool validX = true;
       bool validY = true;
+      do
+      {
+      validX = true;
+      validY = true;
       char xTemp = ' ';
       string playerShot = "";
       cout<<"Input a position for the front of the ship: ";
