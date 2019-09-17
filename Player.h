@@ -9,7 +9,7 @@ class Player
   public:
     ~Player();
     Player();
-    Player(int numShips);
+    Player(int shipNums);
     void placeShips(); //Method to place ships on board
     bool fireShot(int xPos, int yPos, Player target); //Fires shots at enemy
     bool isDead(); //Checks if all of player's ships are sunk
@@ -20,7 +20,7 @@ class Player
   private:
     Board ownBoard; //Board designating where own ships are
     Board enemyBoard; //Board showing where player has fired/hit enemy ships
-    int numShips = 0;
+    int numShips;
     Ship* ownShips; //Points toward array of ships owned by the player
 
   };
