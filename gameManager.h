@@ -20,7 +20,7 @@ class gameManager
     void gameLoop();   //game loop that runs until somone wins, loses or the game breaks.
     void setHit(int xPos, int yPos);     //sets hit markers on hit/miss board.
     void setMiss(int xPos, int yPos);    //sets miss markers on hit/miss board..
-    void playerTurn(Player p);
+    void playerTurn(Player p, Player opponent);
     void gameOver(Player winner);
 
 
