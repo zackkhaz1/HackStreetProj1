@@ -99,17 +99,17 @@ p.getBoard('o').printBoard(); //'o' represents "own board"
 cout<<"\nTARGET BOARD: \n";
 p.getBoard('e').printBoard(); //'e' represents "enemy board"
 cout << '\n';
+int xVal =0;
+int yVal =0;
 do
 {
 bool validX = true;
 bool validY = true;
-int xVal =0;
-int yVal =0;
 char xTemp = ' ';
 string playerShot = "";
 cout << "Enter space to fire at: ";
 cin >> playerShot;
-xTemp = playerShot.at(0);
+xTemp = tolower(playerShot.at(0));
 yVal = playerShot.at(1);
 
     switch (xTemp)
@@ -174,6 +174,11 @@ yVal = playerShot.at(1);
     validY = false;
 		break;
 	}
+  if (p.getBoard(e).getPos(xVal, yVal) == 'm' || p.getBoard(e).getPos(xVal, yVal) == 'h')
+  {
+    validX = false;
+    validY = false;
+  }
 }
 while (!validX || !validY);
 if(p.fireShot(xVal,yVal))

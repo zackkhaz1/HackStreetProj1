@@ -47,12 +47,12 @@ void Player::placeShips()
           cout<"Pick a valid option this time.\n";
         }
       }
+      int xVal =0;
+      int yVal =0;
       do
       {
       bool validX = true;
       bool validY = true;
-      int xVal =0;
-      int yVal =0;
       char xTemp = ' ';
       string playerShot = "";
       cout<<"Input a position for the front of the ship: ";
@@ -128,19 +128,18 @@ void Player::placeShips()
       ownShips[i].setPositions(xVal, yVal);
     }
   }
-bool Player::fireShot(int xPos, int yPos)
+bool Player::fireShot(int xPos, int yPos, Player target)
 {
 
-    if(enemyBoard.getPos(xPos,yPos) == 's') //where s represents a ships presence.
+    if(target.getBoard(o).getPos(xPos,yPos) == 's') //where s represents a ships presence.
     {
         enemyBoard.setPos(xPos,yPos, 'h');//h represents a ship turned into a hit
         return true;
     }
-    else if(enemyBoard.getPos(xPos,yPos) == 'w')//w represents empty water
+    else if(target.getBoard(o).getPos(xPos,yPos) == 'w')//w represents empty water
     {
       enemyBoard.setPos(xPos,yPos,'m');//m represents a miss that landed in water.
       return false;
-
     }
 }
 
