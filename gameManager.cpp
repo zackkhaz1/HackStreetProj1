@@ -1,22 +1,27 @@
 #include "gameManager.h"
 using namespace std;
-gameManager::gameManager()
-{
-start = false;
-run();
-}
-gameManager::~gameManager()
-{
 
-}
+
+gameManager::gameManager()
+  {
+    start = false;
+    run();
+  }
+
+gameManager::~gameManager()
+  {
+
+  }
+
 void gameManager::run()
 {
-playerMenu();
-if(start == true)
-{
-   gameLoop();
+  playerMenu();
+  if(start == true)
+  {
+    gameLoop();
+  }
 }
-}
+
 void gameManager::playerMenu()
 {
   int playerChoice = 6942069;
@@ -38,23 +43,18 @@ void gameManager::playerMenu()
         }
      else if(playerChoice == 2)
        {
-          cout << "Current Ruleset: Number of ships = "<< tempShips << "Please input new number of ships to play (must be between 1 and 5): " << endl;
+          cout << "Current Ruleset: Number of ships = "<< tempShips << endl;
+          cout << "Please input new number of ships to play (must be between 1 and 5): " << endl;
 
-          cin>>tempShips;
-          if (tempShips < 1)
-          {
-            tempShips = 1;
-          }
-          else if (tempShips > 5)
-          {
-            tempShips = 5;
-          }
-          else
+          cin >> tempShips;
+          if (tempShips < 1 || tempShips > 5)
           {
             cout<<"ERROR: Invalid Input!\n";
-            tempShips = 5;
           }
-          cout<<"New Ruleset: "<<tempShips<<" ships per game.";
+          else if (!(tempShips < 1 || tempShips > 5))
+          {
+            cout<<"New Ruleset: "<< tempShips <<" ships per game.";
+          }
        }
     else if(playerChoice == 3)
        {
@@ -105,26 +105,26 @@ void gameManager::gameLoop()
 }
 void gameManager::playerTurn(Player p, Player opponent)
 {
-cout << '\n';
-cout<<"YOUR BOARD: \n";
-p.getBoard('o').printBoard(); //'o' represents "own board"
-cout<<"\nTARGET BOARD: \n";
-p.getBoard('e').printBoard(); //'e' represents "enemy board"
-cout << '\n';
-int xVal =0;
-int yVal =0;
-bool validX = true;
-bool validY = true;
+  cout << '\n';
+  cout<<"YOUR BOARD: \n";
+  p.getBoard('o').printBoard(); //'o' represents "own board"
+  cout<<"\nTARGET BOARD: \n";
+  p.getBoard('e').printBoard(); //'e' represents "enemy board"
+  cout << '\n';
+  int xVal =0;
+  int yVal =0;
+  bool validX = true;
+  bool validY = true;
 do
 {
-validX = true;
-validY = true;
-char xTemp = ' ';
-string playerShot = "";
-cout << "Enter space to fire at: ";
-cin >> playerShot;
-xTemp = tolower(playerShot.at(0));
-yVal = playerShot.at(1);
+  validX = true;
+  validY = true;
+  char xTemp = ' ';
+  string playerShot = "";
+  cout << "Enter space to fire at: ";
+  cin >> playerShot;
+  xTemp = tolower(playerShot.at(0));
+  yVal = playerShot.at(1);
 
     switch (xTemp)
 	{
@@ -193,8 +193,8 @@ yVal = playerShot.at(1);
     validX = false;
     validY = false;
   }
-}
-while (!validX || !validY);
+} while (!validX || !validY);
+
 if(p.fireShot(xVal,yVal, opponent))
 {
   opponent.receiveHit(xVal, yVal);
