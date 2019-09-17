@@ -128,17 +128,18 @@ void Player::placeShips()
       ownShips[i].setPositions(xVal, yVal);
     }
   }
-void Player::fireShot(int xPos, int yPos)
+bool Player::fireShot(int xPos, int yPos)
 {
 
     if(enemyBoard.getPos(xPos,yPos) == 's') //where s represents a ships presence.
     {
         enemyBoard.setPos(xPos,yPos, 'h');//h represents a ship turned into a hit
+        return true;
     }
     else if(enemyBoard.getPos(xPos,yPos) == 'w')//w represents empty water
     {
-
       enemyBoard.setPos(xPos,yPos,'m');//m represents a miss that landed in water.
+      return false;
 
     }
 }
