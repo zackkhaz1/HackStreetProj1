@@ -27,11 +27,6 @@ void gameManager::playerMenu()
       cin >> playerChoice;
       if(playerChoice == 1)
         {
-          cout<<"Game Starting!\n";
-          cout<<"Setting up Player 1...\n";
-          Player p1(tempShips);
-          cout<<"Setting up Player 2...\n";
-          Player p2(tempShips);
            start = true;
         }
      else if(playerChoice == 2)
@@ -67,6 +62,12 @@ void gameManager::playerMenu()
 }
 void gameManager::gameLoop()
 {
+  int tempShips =5;
+  cout<<"Game Starting!\n";
+  cout<<"Setting up Player 1...\n";
+  Player p1(tempShips);
+  cout<<"Setting up Player 2...\n";
+  Player p2(tempShips);
   string s = "";
   while(!p1.isDead() && !p2.isDead())
   {
