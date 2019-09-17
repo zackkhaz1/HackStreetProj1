@@ -19,11 +19,12 @@ if(start == true)
 }
 void gameManager::playerMenu()
 {
+  int playerChoice = 6942069;
   while(start != true)
     {
-	int playerChoice = 6942069;
-      int tempShips = 5;
-      cout << "===WELCOME TO BATTLESHIP!===="<< endl <<
+
+  int tempShips = 5;
+      cout << "===WELCOME TO BATTLESHIP!====" << endl <<
       "========Select Number and Hit Enter to Choose Option===========" << endl <<
       "1.) Start Game" << endl <<
       "2.) Rules" << endl <<
@@ -57,15 +58,18 @@ void gameManager::playerMenu()
        }
     else if(playerChoice == 3)
        {
-         cout<<"Thanks for playing!";
-         break;
+         cout<<"Thanks for playing!" << endl;
+         exit(-1);
        }
     else
       {
         cout << "Invalid Menu Choice! Please Choose Again.\n";
       }
     }
-  gameLoop();
+  if(start == true)
+  {
+    gameLoop();
+  }
 }
 void gameManager::gameLoop()
 {
