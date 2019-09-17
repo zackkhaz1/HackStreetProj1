@@ -21,6 +21,7 @@ void gameManager::playerMenu()
 {
   while(start != true)
     {
+	int playerChoice = 6942069;
       int tempShips = 5;
       cout << "===WELCOME TO BATTLESHIP!====\n========Select Number and Hit Enter to Choose Option===========\n1.) Start Game\n 2.)Rules\n3.)Close Game\n===============================================\n";
       cin >> playerChoice;
@@ -196,13 +197,13 @@ void gameManager::gameOver(Player winner)
 {
   cout<<"============\nGAME OVER\n============\n";
   {
-    if (winner == p1)
-    cout<<"Player 1 Wins!\n";
+    //if (winner == p1)
+    //cout<<"Player 1 Wins!\n";
 
-    else if (winner == p2)
-    cout<<"Player 2 Wins!\n";
+    //else if (winner == p2)
+    //cout<<"Player 2 Wins!\n";
 
-    else
-    cout<<"Whoops!  Something's not right here.\n";
+    //else
+    //cout<<"Whoops!  Something's not right here.\n";
   }
 }
