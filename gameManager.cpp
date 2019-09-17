@@ -28,7 +28,7 @@ void gameManager::playerMenu()
   while(start != true)
     {
 
-  int tempShips = 5;
+
       cout << "===WELCOME TO BATTLESHIP!====" << endl <<
       "========Select Number and Hit Enter to Choose Option===========" << endl <<
       "1.) Start Game" << endl <<
@@ -43,17 +43,18 @@ void gameManager::playerMenu()
         }
      else if(playerChoice == 2)
        {
-          cout << "Current Ruleset: Number of ships = "<< tempShips << endl;
+          cout << "Current Ruleset: Number of ships = "<< numOfShips << endl;
           cout << "Please input new number of ships to play (must be between 1 and 5): " << endl;
 
-          cin >> tempShips;
-          if (tempShips < 1 || tempShips > 5)
+          cin >> numOfShips;
+          if (numOfShips < 1 || numOfShips > 5)
           {
             cout<<"ERROR: Invalid Input!\n";
           }
-          else if (!(tempShips < 1 || tempShips > 5))
+          else if (!(numOfShips < 1 || numOfShips > 5))
           {
-            cout<<"New Ruleset: "<< tempShips <<" ships per game.";
+            cout<< "Number of ships in game: " << numOfShips << endl;
+
           }
        }
     else if(playerChoice == 3)
@@ -73,12 +74,11 @@ void gameManager::playerMenu()
 }
 void gameManager::gameLoop()
 {
-  int tempShips =5;
   cout<<"Game Starting!\n";
   cout<<"Setting up Player 1...\n";
-  Player p1(tempShips);
+  Player p1(numOfShips);
   cout<<"Setting up Player 2...\n";
-  Player p2(tempShips);
+  Player p2(numOfShips);
   string s = "";
   while(!p1.isDead() && !p2.isDead())
   {
