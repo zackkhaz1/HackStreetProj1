@@ -4,17 +4,19 @@ using namespace std;
 
 Board::~Board()
   {
-
+    for(int i = 0; i < 8; i++)
+      {
+        delete mapp[i];
+      }
+    delete mapp;
   }
 
 Board::Board()
 {
+
   for(int r=0; r<8; r++)
   {
-    for(int c=0; c<8; c++)
-    {
-      mapp[r][c]='w';
-    }
+    mapp[r] = new char[8];
   }
 }
 

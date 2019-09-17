@@ -13,6 +13,6 @@ void setPos(int xPos,int yPos, char val);
 char getPos(int xPos, int yPos);
 void printBoard(); // w = water; s = ship; h = hit; m = miss;
 private:
-char mapp[8][8];
+char** mapp = new char*[8];
 };
 #endif
