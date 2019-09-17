@@ -27,8 +27,8 @@ private:
   char orientation;
   bool sunk;
   int hits;
-  int* XPositions; //Points to an array of the X postions of each segment of the ship
-  int* YPositions; //Points to an array of the Y postions of each segment of the ship
+  int* xPositions; //Points to an array of the X postions of each segment of the ship
+  int* yPositions; //Points to an array of the Y postions of each segment of the ship
 };
 #endif
 
