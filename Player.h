@@ -20,7 +20,7 @@ class Player
   private:
     Board ownBoard; //Board designating where own ships are
     Board enemyBoard; //Board showing where player has fired/hit enemy ships
-    int numShips = 0;
+    int numShips;
     Ship* ownShips; //Points toward array of ships owned by the player
 
   };

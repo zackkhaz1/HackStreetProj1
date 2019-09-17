@@ -5,6 +5,7 @@ Player::Player()
 }
 Player::Player(int shipNums)
   {
+    cout <<"\nstart of player constructor.\n";
       numShips = shipNums;
       Ship myShips[shipNums];
       for (int i = 1; i <= shipNums; i++)
@@ -14,7 +15,8 @@ Player::Player(int shipNums)
       }
       ownShips = myShips;
       placeShips();
-
+      ownBoard.printBoard();
+      cout <<"\nend of player constructor.\n";
   }
 Player::~Player()
 {
@@ -38,6 +40,7 @@ void Player::placeShips()
     string tempCoord = "";
     for(int i = 0; i < numShips; i++)
     {
+      cout <<"\nNumber Of Ships: " << numShips << '\n';
       cout<<"Placing Ship of Size: "<<(i+1);
       while (tempOrient != 'h' && tempOrient != 'v')
       {
@@ -72,7 +75,7 @@ void Player::placeShips()
       		xVal = 1;
       		break;
                  case 'c':
-      		xVal = 2;			//switch block transforms first char in input string from the player into integer value.
+      		xVal = 2;			//switch block tcout <<"\nstart of player constructor.\n";ransforms first char in input string from the player into integer value.
       		break;
       	         case 'd':
       		xVal = 3;
@@ -129,6 +132,18 @@ void Player::placeShips()
       while (!validX || !validY);
       ownShips[i].setOrientation(tempOrient);
       ownShips[i].setPositions(xVal, yVal);
+      if(ownShips[i].getOrientation() == 'v'){
+      for(int k=0; k<ownShips[i].getSize(); k++)
+      {
+        ownBoard.setPos(xVal+k,yVal,'s');
+      }
+    }
+    else{
+      for(int k=0; k<ownShips[i].getSize(); k++)
+      {
+        ownBoard.setPos(xVal,yVal+k,'s');
+      }
+    }
     }
   }
 bool Player::fireShot(int xPos, int yPos, Player target)
@@ -163,10 +178,9 @@ bool Player::isDead()
   bool tempDead = true;
   for (int i = 0; i < numShips; i++)
   {
-    cout<<"is dead " << i;
+
     if (ownShips[i].isSunk() == false)
     {
-
       tempDead = false;
     }
   }
