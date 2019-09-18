@@ -41,22 +41,22 @@ void Player::placeShips()
     for(int i = 0; i < numShips; i++)
     {
       cout <<"\nNumber Of Ships: " << numShips << '\n';
-      cout<<"Placing Ship of Size: "<<(i+1);
-      while (tempOrient != 'h' && tempOrient != 'v')
-      {
-      cout<<"\nPlease input an orientation (v for Vertical or h for Horizontal): ";
-      cin>>tempOrient;
-      if (tempOrient != 'h' && tempOrient != 'v')
-        {
-          cout<<"Pick a valid option this time.\n";
-        }
-      }
       int xVal =0;
       int yVal =0;
       bool validX = true;
       bool validY = true;
       do
       {
+        cout<<"Placing Ship of Size: "<<(i+1);
+        while (tempOrient != 'h' && tempOrient != 'v')
+        {
+        cout<<"\nPlease input an orientation (v for Vertical or h for Horizontal): ";
+        cin>>tempOrient;
+        if (tempOrient != 'h' && tempOrient != 'v')
+          {
+            cout<<"Pick a valid option this time.\n";
+          }
+        }
       validX = true;
       validY = true;
       char xTemp = ' ';
@@ -128,28 +128,32 @@ void Player::placeShips()
           validY = false;
       		break;
       	}
+        if(tempOrient == 'v')
+        {
+          for(int k =0; k<i+1; k++)
+          {
+          ownBoard.setPos(yVal+k,xVal,'s');
+          }
+        }
+        else
+        {
+          for(int k =0; k<i+1; k++)
+          {
+          ownBoard.setPos(yVal,xVal+k,'s');
+          }
+        }
+        tempOrient = 'n'; //sets tempOrient to meaningless val for while loop.
       }
       while (!validX || !validY);
       ownShips[i].setOrientation(tempOrient);
       ownShips[i].setPositions(xVal, yVal);
-      if(ownShips[i].getOrientation() == 'v'){
-      for(int k=0; k<ownShips[i].getSize(); k++)
-      {
-        ownBoard.setPos(xVal+k,yVal,'s');
-      }
-    }
-    else{
-      for(int k=0; k<ownShips[i].getSize(); k++)
-      {
-        ownBoard.setPos(xVal,yVal+k,'s');
-      }
-    }
+
     }
   }
 bool Player::fireShot(int xPos, int yPos, Player target)
 {
 
-    if(target.getBoard('o').getPos(xPos,yPos) == 's') //where s represents a ships presence.
+    if(target.getBoard('o').getPos(xPos,yPos) == 's') //where s represents a ships presence. 'o represents the targets "ownBoard"'
     {
         enemyBoard.setPos(xPos,yPos, 'h');//h represents a ship turned into a hit
         return true;
@@ -159,6 +163,7 @@ bool Player::fireShot(int xPos, int yPos, Player target)
       enemyBoard.setPos(xPos,yPos,'m');//m represents a miss that landed in water.
       return false;
     }
+    return false;
 }
 
 void Player::receiveHit(int xPos, int yPos)
@@ -167,6 +172,7 @@ void Player::receiveHit(int xPos, int yPos)
   {
     if (ownShips[i].coordCheck(xPos, yPos))
     {
+      cout<<"\nSUCCESSFUL_COORD_CHECK\n";
       ownShips[i].addHit();
       break;
     }
