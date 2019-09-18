@@ -128,6 +128,7 @@ do
     switch (xTemp)
 	{
            case 'a':
+           cout<<"\nA";
 		xVal = 0;
 		break;
 	         case 'b':
@@ -159,6 +160,7 @@ do
     switch (yVal)
 	{
            case '1':
+           cout << "1\n";
 		yVal = 0;
 		break;
 	         case '2':
