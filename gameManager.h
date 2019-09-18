@@ -11,6 +11,7 @@ class gameManager
     void run(); //method that will be called from main.cpp to run rest of class.
 
   private:
+    int numOfShips = 1;
     Player p1;
     Player p2;
     bool start; //will signify if gameLoop should be started and menu is left
