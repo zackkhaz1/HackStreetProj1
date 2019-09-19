@@ -67,7 +67,7 @@ void Ship::setPositions(int xPos, int yPos)
 		}
 	}else if(orientation == 'v')//If 'v' fill arrays with of ship in the vertical direction
 	{
-		for(int i = 0; i < size; i++)
+		for(int i = 0; i < 5; i++)
 		{
 			yPositions[i] = yPos + i;
 			xPositions[i] = xPos;

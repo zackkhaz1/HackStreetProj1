@@ -102,7 +102,7 @@ void gameManager::gameLoop()
   }
   playerMenu();
 }
-void gameManager::playerTurn(Player p, Player opponent)
+void gameManager::playerTurn(Player &p, Player &opponent)
 {
   cout << '\n';
   cout<<"YOUR BOARD: \n";
