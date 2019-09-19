@@ -29,9 +29,10 @@ char Board::getPos(int xPos, int yPos)
 
 void Board::printBoard()
 {
-
+      cout << "  A B C D E F G H\n";
   for(int r=0; r<8; r++)
   {
+      cout <<r+1 <<" ";
     for(int c=0; c<8; c++)
     {
       cout << mapp[r][c] << " ";
