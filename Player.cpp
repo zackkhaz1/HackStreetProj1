@@ -3,7 +3,7 @@ Player::Player()
 {
 
 }
-Player::Player(int shipNums)
+Player::Player(int shipNums,string name)
   {
     cout <<"\nstart of player constructor.\n";
       numShips = shipNums;
@@ -16,6 +16,7 @@ Player::Player(int shipNums)
       placeShips();
       ownBoard.printBoard();
       cout <<"\nend of player constructor.\n";
+      namee = name;
   }
 Player::~Player()
 {
@@ -61,8 +62,11 @@ void Player::placeShips()
       validY = true;
       char xTemp = ' ';
       string playerShot = "";
-      cout<<"Input a position for the front of the ship: ";
-      cin >> playerShot;
+      while(playerShot.length() != 2 || int(playerShot.at(0)) < 96 || int(playerShot.at(0) > 122) || playerShot.at(1)>8 || playerShot.at(1)<1)
+      {
+        cout<<"Input a position for the front of the ship: ";
+        cin >> playerShot;
+      }
       xTemp = playerShot.at(0);
       yVal = playerShot.at(1);
 
@@ -213,4 +217,8 @@ bool Player::isDead()
     }
   }
   return tempDead;
+}
+string Player::getName()
+{
+    return(namee);
 }

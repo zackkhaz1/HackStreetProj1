@@ -75,9 +75,9 @@ void gameManager::gameLoop()
 {
   cout<<"Game Starting!\n";
   cout<<"Setting up Player 1...\n";
-  Player p1(numOfShips);
+  Player p1(numOfShips,"Player 1");
   cout<<"Setting up Player 2...\n";
-  Player p2(numOfShips);
+  Player p2(numOfShips ,"Player 2");
   string s = "";
   while(!p1.isDead() && !p2.isDead())
   {
@@ -206,15 +206,20 @@ p.getBoard('e').printBoard();
 
 void gameManager::gameOver(Player winner)
 {
+  start = false;
   cout<<"============\nGAME OVER\n============\n";
   {
-    //if (winner == p1)
-    //cout<<"Player 1 Wins!\n";
-
-    //else if (winner == p2)
-    //cout<<"Player 2 Wins!\n";
-
-    //else
-    //cout<<"Whoops!  Something's not right here.\n";
+    if(winner.getName() == "Player 1")
+    {
+      cout<<"\nPlayer 1 Wins!\n";
+    }
+    else if(winner.getName() == "Player 2")
+    {
+      cout<< "\nPlayer 2 Wins!\n";
+    }
+    else
+    {
+    cout<<"Whoops!  Something's not right here.\n";
+    }
   }
 }
