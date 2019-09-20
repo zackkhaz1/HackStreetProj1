@@ -170,12 +170,12 @@ bool Player::fireShot(int xPos, int yPos, Player &target)
     if(target.getBoard('o').getPos(xPos,yPos) == 's') //where s represents a ships presence. 'o represents the targets "ownBoard"'
     {
         target.receiveHit(xPos, yPos);
-        enemyBoard.setPos(xPos,yPos, 'h');//h represents a ship turned into a hit
+        enemyBoard.setPos(yPos,xPos, 'h');//h represents a ship turned into a hit
         return true;
     }
     else if(target.getBoard('o').getPos(xPos,yPos) == '|')//w represents empty water
     {
-      enemyBoard.setPos(xPos,yPos,'m');//m represents a miss that landed in water.
+      enemyBoard.setPos(yPos,xPos,'m');//m represents a miss that landed in water.
       return false;
     }
     return false;
