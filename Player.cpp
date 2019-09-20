@@ -5,7 +5,6 @@ Player::Player()
 }
 Player::Player(int shipNums,string name)
   {
-    cout <<"\nstart of player constructor.\n";
       numShips = shipNums;
       ownShips = new Ship[shipNums];
       for (int i = 1; i <= shipNums; i++)
@@ -15,7 +14,6 @@ Player::Player(int shipNums,string name)
       }
       placeShips();
       ownBoard.printBoard();
-      cout <<"\nend of player constructor.\n";
       namee = name;
   }
 Player::~Player()
@@ -40,7 +38,6 @@ void Player::placeShips()
     string tempCoord = "";
     for(int i = 0; i < numShips; i++)
     {
-      cout <<"\nNumber Of Ships: " << numShips << '\n';
       int xVal =0;
       int yVal =0;
       bool validX = true;
@@ -196,7 +193,6 @@ void Player::receiveHit(int xPos, int yPos)
   {
     if (ownShips[i].coordCheck(xPos, yPos))
     {
-      cout<<"\nSUCCESSFUL_COORD_CHECK\n";
       ownShips[i].addHit();
       break;
     }

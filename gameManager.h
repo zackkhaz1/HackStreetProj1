@@ -19,6 +19,7 @@ class gameManager
     /**method that is called from main.cpp to run rest of the game. opens gameMenu until start is true.
         */
     void run();
+    char playerChoice;
 
   private:
 
