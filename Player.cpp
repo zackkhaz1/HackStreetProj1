@@ -7,13 +7,12 @@ Player::Player(int shipNums)
   {
     cout <<"\nstart of player constructor.\n";
       numShips = shipNums;
-      Ship myShips[shipNums];
+      ownShips = new Ship[shipNums];
       for (int i = 1; i <= shipNums; i++)
       {
         Ship tempShip(i);
-        myShips[i-1] = tempShip;
+        ownShips[i-1] = tempShip;
       }
-      ownShips = myShips;
       placeShips();
       ownBoard.printBoard();
       cout <<"\nend of player constructor.\n";

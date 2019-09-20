@@ -3,7 +3,6 @@
 using namespace std;
 Ship::Ship()
 {
-
 }
 
 Ship::Ship(int ShipSize)
@@ -13,8 +12,6 @@ Ship::Ship(int ShipSize)
 	sunk = false;
 	hits = 0;
 }
-
-
 
 int Ship::getSize()
 {
