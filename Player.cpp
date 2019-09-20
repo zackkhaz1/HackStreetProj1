@@ -169,6 +169,7 @@ void Player::placeShips()
       }
       while (!validX || !validY);
       ownShips[i].setPositions(xVal, yVal);
+      ownBoard.printBoard();
 
     }
   }
