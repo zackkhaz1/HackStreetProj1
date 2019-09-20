@@ -142,7 +142,6 @@ void Player::placeShips()
               try
               {
                 ownBoard.setPos(yVal+k,xVal,'s');
-
               } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
             }
           }
@@ -180,7 +179,7 @@ bool Player::fireShot(int xPos, int yPos, Player &target)
         enemyBoard.setPos(yPos,xPos, 'h');//h represents a ship turned into a hit
         return true;
     }
-    else if(target.getBoard('o').getPos(xPos,yPos) == '|')//w represents empty water
+    else if(target.getBoard('o').getPos(xPos,yPos) == '|')//| represents empty water
     {
       enemyBoard.setPos(yPos,xPos,'m');//m represents a miss that landed in water.
       return false;
