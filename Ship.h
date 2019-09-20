@@ -73,8 +73,8 @@ private:
   char orientation;/**Orientation of the ship*/
   bool sunk;/**Boolean that stores whether or not the ship is sunk*/
   int hits;/**stores the number of hits the ship has taken.*/
-  int* xPositions; /**Points to an array of the X postions of each segment of the ship*/
-  int* yPositions; /**Points to an array of the Y postions of each segment of the ship*/
+  int xPositions[5]; /**Points to an array of the X postions of each segment of the ship*/
+  int yPositions[5]; /**Points to an array of the Y postions of each segment of the ship*/
 };
 #endif
 

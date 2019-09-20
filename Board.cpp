@@ -13,7 +13,7 @@ Board::Board()
   {
     for(int c=0; c<8; c++)
     {
-      mapp[r][c]='w';
+      mapp[r][c]='|';
     }
   }
 }
