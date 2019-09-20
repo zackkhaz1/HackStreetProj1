@@ -3,7 +3,7 @@ Player::Player()
 {
 
 }
-Player::Player(int shipNums)
+Player::Player(int shipNums,string name)
   {
     cout <<"\nstart of player constructor.\n";
       numShips = shipNums;
@@ -16,6 +16,7 @@ Player::Player(int shipNums)
       placeShips();
       ownBoard.printBoard();
       cout <<"\nend of player constructor.\n";
+      namee = name;
   }
 Player::~Player()
 {
@@ -61,8 +62,8 @@ void Player::placeShips()
       validY = true;
       char xTemp = ' ';
       string playerShot = "";
-      cout<<"Input a position for the front of the ship: ";
-      cin >> playerShot;
+        cout<<"Input a position for the front of the ship: ";
+        cin >> playerShot;
       xTemp = playerShot.at(0);
       yVal = playerShot.at(1);
 
@@ -130,7 +131,7 @@ void Player::placeShips()
       	}
         if(tempOrient == 'v')
         {
-          if (yVal + i + 1 > 7)
+          if (yVal + i + 1 > 8)
           {
             cout<<"Ship out of bounds!\n";
             validY = false;
@@ -139,13 +140,16 @@ void Player::placeShips()
           {
             for(int k =0; k<i+1; k++)
             {
-            ownBoard.setPos(yVal+k,xVal,'s');
+              try
+              {
+                ownBoard.setPos(yVal+k,xVal,'s');
+              } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
             }
           }
         }
         else if (tempOrient == 'h')
         {
-          if (xVal + i + 1 > 7)
+          if (xVal + i + 1 > 8)
           {
             cout<<"Ship out of bounds!\n";
             validX = false;
@@ -154,7 +158,10 @@ void Player::placeShips()
           {
             for(int k =0; k<i+1; k++)
             {
-            ownBoard.setPos(yVal,xVal+k,'s');
+              try
+              {
+                ownBoard.setPos(yVal,xVal+k,'s');
+              } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
             }
           }
         }
@@ -162,20 +169,21 @@ void Player::placeShips()
       }
       while (!validX || !validY);
       ownShips[i].setPositions(xVal, yVal);
+      ownBoard.printBoard();
 
     }
   }
-bool Player::fireShot(int xPos, int yPos, Player &target)
+bool Player::fireShot(int row, int col, Player &target)
 {
-    if(target.getBoard('o').getPos(xPos,yPos) == 's') //where s represents a ships presence. 'o represents the targets "ownBoard"'
+    if(target.getBoard('o').getPos(row,col) == 's') //where s represents a ships presence. 'o represents the targets "ownBoard"'
     {
-        target.receiveHit(xPos, yPos);
-        enemyBoard.setPos(yPos,xPos, 'h');//h represents a ship turned into a hit
+        target.receiveHit(row, col);
+        enemyBoard.setPos(col,row, 'h');//h represents a ship turned into a hit
         return true;
     }
-    else if(target.getBoard('o').getPos(xPos,yPos) == '|')//w represents empty water
+    else if(target.getBoard('o').getPos(row,col) == '|')//| represents empty water
     {
-      enemyBoard.setPos(yPos,xPos,'m');//m represents a miss that landed in water.
+      enemyBoard.setPos(col,row,'m');//m represents a miss that landed in water.
       return false;
     }
     return false;
@@ -207,4 +215,8 @@ bool Player::isDead()
     }
   }
   return tempDead;
+}
+string Player::getName()
+{
+    return(namee);
 }

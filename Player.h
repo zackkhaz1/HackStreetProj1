@@ -5,7 +5,7 @@
 #include "Board.h"
 #ifndef PLAYER_H
 #define PLAYER_H
-
+#include <string>
 using namespace std;
 
 class Player
@@ -18,7 +18,7 @@ class Player
     /**main constructor that sets number of ships and creates an array of myShips
         @param shipNums - Numbers of ships to be included in the player.
         */
-    Player(int shipNums);
+    Player(int shipNums,string name);
     /**sets the positions of the ships on the board.
         */
     void placeShips();
@@ -42,6 +42,7 @@ class Player
       @param yPos - the y position that has been hit
         */
     void receiveHit(int xPos, int yPos);
+    string getName();
 
 
   private:
@@ -49,6 +50,6 @@ class Player
     Board enemyBoard; /**Board that contains hits and missses for the player*/
     int numShips;/**number of ships assigned to each player*/
     Ship* ownShips; /**Points toward array of ships owned by the player*/
-
+    string namee;
   };
 #endif
