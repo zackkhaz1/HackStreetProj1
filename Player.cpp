@@ -130,7 +130,7 @@ void Player::placeShips()
       	}
         if(tempOrient == 'v')
         {
-          if (yVal + i + 1 > 7)
+          if (yVal + i + 1 > 8)
           {
             cout<<"Ship out of bounds!\n";
             validY = false;
@@ -139,13 +139,17 @@ void Player::placeShips()
           {
             for(int k =0; k<i+1; k++)
             {
-            ownBoard.setPos(yVal+k,xVal,'s');
+              try
+              {
+                ownBoard.setPos(yVal+k,xVal,'s');
+
+              } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
             }
           }
         }
         else if (tempOrient == 'h')
         {
-          if (xVal + i + 1 > 7)
+          if (xVal + i + 1 > 8)
           {
             cout<<"Ship out of bounds!\n";
             validX = false;
@@ -154,7 +158,10 @@ void Player::placeShips()
           {
             for(int k =0; k<i+1; k++)
             {
-            ownBoard.setPos(yVal,xVal+k,'s');
+              try
+              {
+                ownBoard.setPos(yVal,xVal+k,'s');
+              } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
             }
           }
         }
