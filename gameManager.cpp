@@ -137,6 +137,11 @@ do
   string playerShot = "";
   cout << "Enter space to fire at: ";
   cin >> playerShot;
+  while(playerShot.length() != 2)
+  {
+    cout << "Enter space to fire at: ";
+    cin >> playerShot;
+  }
   xTemp = tolower(playerShot.at(0));
   yVal = playerShot.at(1);
 

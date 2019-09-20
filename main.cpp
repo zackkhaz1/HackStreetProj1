@@ -1,5 +1,5 @@
 /** @brief main class that is called and starts the run of gameManager.
-    @author Justin Khounsombath,Brandon Wheat,William Burdick,Hunter Cobb, Zackariah Khazraeinazmpour
+    @author Brandon Wheat,William Burdick,Hunter Cobb, Zackariah Khazraeinazmpour
     @date September 22, 2019
     */
 #include "Board.h"
