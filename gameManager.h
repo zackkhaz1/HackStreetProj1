@@ -52,7 +52,7 @@ class gameManager
       @param p - player to be passed in as main player of the turn
       @param opponent - player to be passed in as enemy that will be fired upon.
     */
-    void playerTurn(Player p, Player opponent);
+    void playerTurn(Player &p, Player &opponent);
     /**sets game to over when someone sinks their opponenets ships completely.
       @param winner - player who sunk his oppponents ships first.
 

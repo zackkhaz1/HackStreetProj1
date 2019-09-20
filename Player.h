@@ -27,7 +27,7 @@ class Player
         @param yPos - y position of shot
         @param target - player that is to be fired upon.
         */
-    bool fireShot(int xPos, int yPos, Player target);
+    bool fireShot(int xPos, int yPos, Player &target);
     /**Checks whether a player is still alive
       @return whether or not a players ships have all been sunk
         */
@@ -41,7 +41,7 @@ class Player
       @param xPos - the x position that has been hit
       @param yPos - the y position that has been hit
         */
-    void receiveHit(int xPos, int yPos); 
+    void receiveHit(int xPos, int yPos);
 
 
   private:
