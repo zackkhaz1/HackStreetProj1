@@ -62,11 +62,8 @@ void Player::placeShips()
       validY = true;
       char xTemp = ' ';
       string playerShot = "";
-      while(playerShot.length() != 2 || int(playerShot.at(0)) < 96 || int(playerShot.at(0) > 122) || playerShot.at(1)>8 || playerShot.at(1)<1)
-      {
         cout<<"Input a position for the front of the ship: ";
         cin >> playerShot;
-      }
       xTemp = playerShot.at(0);
       yVal = playerShot.at(1);
 
