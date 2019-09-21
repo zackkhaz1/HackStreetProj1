@@ -25,6 +25,7 @@ void gameManager::run()
 void gameManager::playerMenu()
 {
   playerChoice = 'f';
+  string playerInput = "";
   cout << "\n===============================================================\n===============================================================\n";
   cout << "===WELCOME TO BATTLESHIP!======================================" << endl <<
   "===============================================================\n===============================================================\n";
@@ -36,7 +37,15 @@ void gameManager::playerMenu()
       "3.) Close Game\n===============================================================" << endl;
       cout<<">> ";
 
-      cin >> playerChoice;
+      cin >> playerInput;
+      if (playerInput.length() > 1)
+      {
+        cout<< "Input too long, just 1 character please!\n";
+      }
+      else
+      {
+        playerChoice = playerInput.at(0);
+      }
 
       if(playerChoice == '1')
         {
