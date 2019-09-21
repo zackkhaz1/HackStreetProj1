@@ -13,7 +13,6 @@ Player::Player(int shipNums,string name)
         ownShips[i-1] = tempShip;
       }
       placeShips();
-      ownBoard.printBoard();
       namee = name;
   }
 Player::~Player()

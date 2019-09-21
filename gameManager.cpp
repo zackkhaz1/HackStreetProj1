@@ -75,16 +75,20 @@ void gameManager::playerMenu()
 }
 void gameManager::gameLoop()
 {
+  string s = "";
   cout<< "Player 1, Set Your Ships!\n";
   Player p1(numOfShips,"Player 1");
   //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
+  cout << "Press any key(AND ENTER) to begin setting up player 2's board: \n";
+  cin >> s;
   cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
   //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
   cout<< "Player 2, Set Your Ships!\n";
   Player p2(numOfShips ,"Player 2");
   //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
+  cout << "Press any key(AND ENTER) to finish board setup: \n";
+  cin >> s;
   cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-  string s = "";
   while(!p1.isDead() && !p2.isDead())
   {
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
@@ -139,12 +143,11 @@ do
   cin >> playerShot;
   while(playerShot.length() != 2)
   {
-    cout << "Enter space to fire at: ";
+    cout << "Enter a valid space to fire at (valid spaces follow format 'a1'): ";
     cin >> playerShot;
   }
   xTemp = tolower(playerShot.at(0));
   yVal = playerShot.at(1);
-
     switch (xTemp)
 	{
            case 'a':
@@ -209,6 +212,7 @@ do
 	}
   if (p.getBoard('e').getPos(yVal, xVal) == 'm' || p.getBoard('e').getPos(yVal, xVal) == 'h')
   {
+    cout << "Already fired here!\n";
     validX = false;
     validY = false;
   }
