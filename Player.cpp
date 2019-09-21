@@ -5,7 +5,6 @@ Player::Player()
 }
 Player::Player(int shipNums,string name)
   {
-    cout <<"\nstart of player constructor.\n";
       numShips = shipNums;
       ownShips = new Ship[shipNums];
       for (int i = 1; i <= shipNums; i++)
@@ -15,7 +14,6 @@ Player::Player(int shipNums,string name)
       }
       placeShips();
       ownBoard.printBoard();
-      cout <<"\nend of player constructor.\n";
       namee = name;
   }
 Player::~Player()
@@ -40,7 +38,6 @@ void Player::placeShips()
     string tempCoord = "";
     for(int i = 0; i < numShips; i++)
     {
-      cout <<"\nNumber Of Ships: " << numShips << '\n';
       int xVal =0;
       int yVal =0;
       bool validX = true;
@@ -62,7 +59,7 @@ void Player::placeShips()
       validY = true;
       char xTemp = ' ';
       string playerShot = "";
-        cout<<"Input a position for the front of the ship: ";
+    LOOP:    cout<<"Input a position for the front of the ship: ";
         cin >> playerShot;
       xTemp = tolower(playerShot.at(0));
       yVal = playerShot.at(1);
@@ -142,6 +139,11 @@ void Player::placeShips()
             {
               try
               {
+                if(ownBoard.getPos(yVal+k,xVal) == 's')
+                {
+                  cout<<"\nCannot Stack Ships!\n";
+                  goto LOOP;
+                }
                 ownBoard.setPos(yVal+k,xVal,'s');
               } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
             }
@@ -160,6 +162,11 @@ void Player::placeShips()
             {
               try
               {
+                if(ownBoard.getPos(yVal,xVal+k) == 's')
+                {
+                  cout<<"\nCannot Stack Ships!\n";
+                  goto LOOP;
+                }
                 ownBoard.setPos(yVal,xVal+k,'s');
               } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
             }
@@ -196,7 +203,6 @@ void Player::receiveHit(int xPos, int yPos)
   {
     if (ownShips[i].coordCheck(xPos, yPos))
     {
-      cout<<"\nSUCCESSFUL_COORD_CHECK\n";
       ownShips[i].addHit();
       break;
     }
