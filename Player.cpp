@@ -64,7 +64,7 @@ void Player::placeShips()
       string playerShot = "";
         cout<<"Input a position for the front of the ship: ";
         cin >> playerShot;
-      xTemp = playerShot.at(0);
+      xTemp = tolower(playerShot.at(0));
       yVal = playerShot.at(1);
 
           switch (xTemp)
