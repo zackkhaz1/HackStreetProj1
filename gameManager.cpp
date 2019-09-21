@@ -48,9 +48,11 @@ void gameManager::playerMenu()
             cout << "Please input new number of ships to play (must be between 1 and 5): ";
             cin >> numOfShips;
 
-            if (numOfShips < 1 || numOfShips > 5)
+            if (numOfShips < 1 || numOfShips > 5 || cin.fail())
             {
               cout<<"\nERROR: Invalid Input!\n";
+              cin.clear();
+              cin.ignore();
             }
           } while(numOfShips < 1 || numOfShips > 5);
 
