@@ -57,17 +57,22 @@ void Player::placeShips()
       validX = true;
       validY = true;
       char xTemp = ' ';
-      string playerShot = "";
+      string placeAt = "";
       bool validInput= 1;
       do
       {
       LOOP:cout<<"Input a position for the front of the ship: ";
-      cin >> playerShot;
+      cin >> placeAt;
       validInput= 1;
         try
         {
-          xTemp = tolower(playerShot.at(0));
-          yVal = playerShot.at(1);
+          xTemp = tolower(placeAt.at(0));
+          yVal = placeAt.at(1);
+		if(!isalpha(xTemp))
+		{
+			cout <<"Position must be in format 'a1'\n";
+			validInput = 0;
+		}
         }
         catch(...)
         {
@@ -155,8 +160,9 @@ void Player::placeShips()
                   cout<<"\nCannot Stack Ships!\n";
                   goto LOOP;
                 }
-                ownBoard.setPos(yVal+k,xVal,'s');
+                
               } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
+		ownBoard.setPos(yVal+k,xVal,'s');
             }
           }
         }
