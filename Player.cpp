@@ -59,11 +59,23 @@ void Player::placeShips()
       validY = true;
       char xTemp = ' ';
       string playerShot = "";
-    LOOP:    cout<<"Input a position for the front of the ship: ";
-        cin >> playerShot;
-      xTemp = tolower(playerShot.at(0));
-      yVal = playerShot.at(1);
-
+      bool validInput= 1;
+      do
+      {
+      LOOP:cout<<"Input a position for the front of the ship: ";
+      cin >> playerShot;
+      validInput= 1;
+        try
+        {
+          xTemp = tolower(playerShot.at(0));
+          yVal = playerShot.at(1);
+        }
+        catch(...)
+        {
+          cout<<"Position must be in format: 'a1'\n";
+          validInput = 0;
+        }
+      }while(validInput == 0);
           switch (xTemp)
       	{
                  case 'a':
