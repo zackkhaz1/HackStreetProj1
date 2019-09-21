@@ -195,6 +195,7 @@ bool Player::fireShot(int row, int col, Player &target)
 {
     if(target.getBoard('o').getPos(col,row) == 's') //where s represents a ships presence. 'o represents the targets "ownBoard"'
     {
+        target.receiveHit(row, col);
         enemyBoard.setPos(col,row, 'h');//h represents a ship turned into a hit
         return true;
     }
@@ -208,7 +209,7 @@ bool Player::fireShot(int row, int col, Player &target)
 
 void Player::receiveHit(int xPos, int yPos)
 {
-
+ownBoard.setPos(yPos, xPos, 'h');
   for (int i = 0; i < numShips; i++)
   {
     if (ownShips[i].coordCheck(xPos, yPos))
