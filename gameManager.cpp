@@ -1,4 +1,5 @@
 #include "gameManager.h"
+#include <cctype>
 using namespace std;
 
 
@@ -25,11 +26,11 @@ void gameManager::run()
 void gameManager::playerMenu()
 {
   playerChoice = 'f';
-  string playerInput = "";
+  char playerInput = ' ';
   cout << "\n===============================================================\n===============================================================\n";
   cout << "===WELCOME TO BATTLESHIP!======================================" << endl <<
   "===============================================================\n===============================================================\n";
-  while(start != true)
+  while(start != true && !(isdigit(playerInput)))
     {
       cout<< "\n===============================================================";
       cout<< "\n1.) Start Game" << endl <<
@@ -38,14 +39,13 @@ void gameManager::playerMenu()
       cout<<">> ";
 
       cin >> playerInput;
-      if (playerInput.length() > 1)
+      /*if (playerInput.length() > 1)
       {
         cout<< "Input too long, just 1 character please!\n";
-      }
-      else
-      {
-        playerChoice = playerInput.at(0);
-      }
+      }*/
+
+        playerChoice = playerInput;
+
 
       if(playerChoice == '1')
         {
@@ -76,7 +76,7 @@ void gameManager::playerMenu()
     else
       {
         cout << "Invalid Menu Choice! Please Choose Again.\n>> ";
-        std::cin >> playerChoice;
+        cin >> playerChoice;
       }
     }
   if(start == true)
