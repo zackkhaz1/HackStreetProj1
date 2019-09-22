@@ -17,7 +17,7 @@ Player::Player(int shipNums,string name)
   }
 Player::~Player()
 {
-
+  delete[] ownShips;
 }
 Board Player::getBoard(char choice)
 {
