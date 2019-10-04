@@ -1,0 +1,10 @@
+[default]
+name=Default
+runtime=host
+config-opts=
+run-opts=
+prefix=/home/georgexps13/.cache/gnome-builder/install/eecs-448-project2/host
+app-id=
+postbuild=
+prebuild=
+default=true
