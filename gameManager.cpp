@@ -93,17 +93,17 @@ void gameManager::gameLoop()
   //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
   cout << "Press any key(AND ENTER) to begin setting up player 2's board: \n";
   cin >> s;
-  cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+  system("clear");
   //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
   cout<< "Player 2, Set Your Ships!\n";
   Player p2(numOfShips ,"Player 2");
   //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
   cout << "Press any key(AND ENTER) to finish board setup: \n";
   cin >> s;
-  cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+  system("clear");
   while(!p1.isDead() && !p2.isDead())
   {
-    cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    system("clear");
     cout << "Press any key(AND ENTER) to begin Player 1's turn: \n";
     cin >> s;
     cout<< "=======================\nPlayer One: it's your turn!\n=======================";
@@ -117,7 +117,7 @@ void gameManager::gameLoop()
     cout << "Press any key(AND ENTER) to end Player 1's turn: \n";
     cin >> s;
     //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
-      cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    system("clear");
     cout << "Press any key(AND ENTER) to begin Player 2's turn: \n"; //dont know how to make accept just keypress.
     cin >> s;
     cout<< "=======================\nPlayer Two: it's your turn!\n=======================";
@@ -129,7 +129,7 @@ void gameManager::gameLoop()
     }
     cout << "Press any key(AND ENTER) to end Player 2's turn: \n"; //same as comment above. (WIP)
     cin >> s;
-      cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    system("clear");
   }
   exit(0);
 }
