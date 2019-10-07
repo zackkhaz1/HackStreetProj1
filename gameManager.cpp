@@ -8,7 +8,7 @@ gameManager::gameManager()
   {
     start = false;
     run();
-      
+
   }
 
 gameManager::~gameManager()
@@ -247,7 +247,7 @@ void gameManager::gameOver(Player winner)
   playerChoice = 17;
   start = false;
   cout<<"============\nGAME OVER\n============\n";
-  {
+
     if(winner.getName() == "Player 1")
     {
         animations.playP1Wins();
@@ -260,5 +260,5 @@ void gameManager::gameOver(Player winner)
     {
     cout<<"Whoops!  Something's not right here.\n";
     }
-  }
+
 }

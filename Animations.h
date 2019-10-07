@@ -7,6 +7,8 @@ using namespace std;
 class Animations{
 
  public:
+   Animations();
+   ~Animations();
    void playHit();
    void playMiss();
    void playSunk();
