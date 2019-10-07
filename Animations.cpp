@@ -1,4 +1,6 @@
 #include "Animations.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 void Animations::playHit(){
   system("clear");

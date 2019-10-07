@@ -1,5 +1,6 @@
 #include "gameManager.h"
 #include <cctype>
+#include "Animations.h"
 using namespace std;
 
 
@@ -7,6 +8,7 @@ gameManager::gameManager()
   {
     start = false;
     run();
+      
   }
 
 gameManager::~gameManager()
@@ -241,17 +243,18 @@ p.getBoard('e').printBoard();
 
 void gameManager::gameOver(Player winner)
 {
+  Animations animations;
   playerChoice = 17;
   start = false;
   cout<<"============\nGAME OVER\n============\n";
   {
     if(winner.getName() == "Player 1")
     {
-      cout<<"\nPlayer 1 Wins!\n";
+        animations.playP1Wins();
     }
     else if(winner.getName() == "Player 2")
     {
-      cout<< "\nPlayer 2 Wins!\n";
+        animations.playP2Wins();
     }
     else
     {
