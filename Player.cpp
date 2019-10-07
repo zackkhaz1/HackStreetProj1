@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Animations.h"
 Player::Player()
 {
 
@@ -14,6 +15,7 @@ Player::Player(int shipNums,string name)
       }
       placeShips();
       namee = name;
+      shipHasBeenSunk=false;
   }
 Player::~Player()
 {
@@ -209,12 +211,17 @@ bool Player::fireShot(int row, int col, Player &target)
 
 void Player::receiveHit(int xPos, int yPos)
 {
+    Animations animations;
 ownBoard.setPos(yPos, xPos, 'h');
   for (int i = 0; i < numShips; i++)
   {
     if (ownShips[i].coordCheck(xPos, yPos))
     {
       ownShips[i].addHit();
+        if(ownShips[i].isSunk() && shipHasBeenSunk==false){
+            animations.playSunk();
+            shipHasBeenSunk=true;
+        }
       break;
     }
   }
@@ -236,4 +243,10 @@ bool Player::isDead()
 string Player::getName()
 {
     return(namee);
+}
+void Player::setShipHasBeenSunk(bool value){
+    shipHasBeenSunk=value;
+}
+bool Player::getShipHasBeenSunk(){
+    return shipHasBeenSunk;
 }

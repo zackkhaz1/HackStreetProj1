@@ -764,6 +764,8 @@ void Animations::playSunk(){
   cout<<"   &         #    oOO                                       OOo        @            \n";
   cout<<"       !              oOO                               OOo      #           %      \n";
   cout<<" %         ^     +        OOO OOO OOO OOO OOO OOO OOO        $     +       ^       &\n";
+    sleep(1);
+
 }
 void Animations::playP1Wins(){
   system("clear");

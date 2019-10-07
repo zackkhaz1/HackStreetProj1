@@ -234,16 +234,16 @@ do
 if(p.fireShot(xVal,yVal, opponent))
 {
   opponent.receiveHit(xVal, yVal);
+    if(opponent.getShipHasBeenSunk()==false){
+    animations.playHit();
+    }
+} else{
+    animations.playMiss();
 }
-cout<<"TARGET BOARD: \n";
-p.getBoard('e').printBoard();
-
-
 }
 
 void gameManager::gameOver(Player winner)
 {
-  Animations animations;
   playerChoice = 17;
   start = false;
   cout<<"============\nGAME OVER\n============\n";
