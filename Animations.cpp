@@ -1,9 +1,11 @@
 #include "Animations.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 void Animations::playHit(){
   system("clear");
   system("clear");
-  
+
   cout<<"===================================================================================\n";
   cout<<"                                                                                   \n";
   cout<<"                                                                                   \n";
@@ -270,6 +272,8 @@ void Animations::playHit(){
   cout<<"                          ~~~                                   \n";
   cout<<"                                                      ~~~\n";
   cout<<"===================================================================================\n";
+
+  sleep(1);
 }
 void Animations::playMiss(){
   system("clear");

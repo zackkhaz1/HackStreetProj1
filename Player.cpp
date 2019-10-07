@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Animations.h"
 Player::Player()
 {
 
@@ -193,15 +194,18 @@ void Player::placeShips()
   }
 bool Player::fireShot(int row, int col, Player &target)
 {
+    Animations animations;
     if(target.getBoard('o').getPos(col,row) == 's') //where s represents a ships presence. 'o represents the targets "ownBoard"'
     {
         target.receiveHit(row, col);
         enemyBoard.setPos(col,row, 'h');//h represents a ship turned into a hit
+        animations.playHit();
         return true;
     }
     else if(target.getBoard('o').getPos(col,row) == '|')// '|' represents empty water
     {
       enemyBoard.setPos(col,row,'m');//m represents a miss that landed in water.
+      animations.playMiss();
       return false;
     }
     return false;
