@@ -5,6 +5,7 @@
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
 #include "Player.h"
+#include "Animations.h"
 using namespace std;
 
 class gameManager

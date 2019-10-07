@@ -2,6 +2,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+Animations::Animations(){
+
+}
+Animations::~Animations(){
+
+}
 void Animations::playHit(){
   system("clear");
   system("clear");

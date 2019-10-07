@@ -12,6 +12,6 @@ Ship.o: Ship.h Ship.cpp
 Board.o: Board.h Board.cpp
 		g++ -std=c++11 -g -Wall -c Board.cpp
 Animations.o: Animations.h Animations.cpp
-        g++ -std=c++11 -g -Wall -c Animations.cpp
+	g++ -std=c++11 -g -Wall -c Animations.cpp
 clean:
 			rm *.o Battleship
