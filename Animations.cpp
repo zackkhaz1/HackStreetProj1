@@ -280,6 +280,7 @@ void Animations::playHit(){
   cout<<"===================================================================================\n";
 
   sleep(1);
+  system("clear");
 }
 void Animations::playMiss(){
   system("clear");
@@ -449,6 +450,9 @@ void Animations::playMiss(){
   cout<<"\n";
   cout<<"                   ~~~                                         \n";
   cout<<"===================================================================================\n";
+
+  sleep(1);
+  system("clear");
 }
 void Animations::playSunk(){
   system("clear");
@@ -468,7 +472,7 @@ void Animations::playSunk(){
   cout<<"                         |                              |\n";
   cout<<"                         |                              |\n";
   cout<<"      ______________________________________________________________________\n";
-  cout<<"     |                            S.S. UNSINKABLE                           |\n";
+  cout<<"     |                         S.S. BOATY MCBOATFACE                        |\n";
   cout<<"     |                                                                      |\n";
   cout<<"     |                                                                      |\n";
   cout<<"      |                                                                    |\n";
@@ -502,7 +506,7 @@ void Animations::playSunk(){
   cout<<"                         |                              |\n";
   cout<<"                         |                              |\n";
   cout<<"      ______________________________________________________________________\n";
-  cout<<"     |                            S.S. UNSINKABLE                           |\n";
+  cout<<"     |                         S.S. BOATY MCBOATFACE                        |\n";
   cout<<"     |                                                                      |\n";
   cout<<"     |                                                                      |\n";
   cout<<"      |                                                                    |\n";
@@ -537,7 +541,7 @@ void Animations::playSunk(){
   cout<<"                         |                              |\n";
   cout<<"                         |                              |\n";
   cout<<"      ______________________________________________________________________\n";
-  cout<<"     |                            S.S. UNSINKABLE                           |\n";
+  cout<<"     |                         S.S. BOATY MCBOATFACE                        |\n";
   cout<<"     |                                                                      |\n";
   cout<<"     |                                                                      |\n";
   cout<<"      |                               OO OO                                |\n";
@@ -572,7 +576,7 @@ void Animations::playSunk(){
   cout<<"                         |                              |\n";
   cout<<"                         |                              |\n";
   cout<<"      ______________________________________________________________________\n";
-  cout<<"     |                            S.S. UNSINKABLE                           |\n";
+  cout<<"     |                         S.S. BOATY MCBOATFACE                        |\n";
   cout<<"     |                               OOO OOO                                |\n";
   cout<<"     |                            oOO        OOo                            |\n";
   cout<<"      |                         oOO            OOo                         |\n";
@@ -766,7 +770,9 @@ void Animations::playSunk(){
   cout<<"   &         #    oOO                                       OOo        @            \n";
   cout<<"       !              oOO                               OOo      #           %      \n";
   cout<<" %         ^     +        OOO OOO OOO OOO OOO OOO OOO        $     +       ^       &\n";
-    sleep(1);
+
+  sleep(1);
+  system("clear");
 
 }
 void Animations::playP1Wins(){
