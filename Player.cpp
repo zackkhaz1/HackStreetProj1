@@ -237,3 +237,45 @@ string Player::getName()
 {
     return(namee);
 }
+
+
+Player::Player(int shipNums, int aiDifficulty, string aiName)
+{
+    namee=aiName;
+    numShips = shipNums;
+    ownShips = new Ship[shipNums];
+    for (int i = 1; i <= shipNums; i++)
+    {
+        Ship tempShip(i);
+        ownShips[i-1] = tempShip;
+    }
+    //now we need to place the ships
+    placeShips();
+    if(aiDifficulty==1)
+    {
+        
+    }
+    else if(aiDifficulty==2)
+    {
+        
+    }
+    else //if aiDifficulty==3
+    {
+        
+    }
+}
+
+void placeAiShips()
+{
+    
+}
+
+int rand0to7()
+{
+    return(rand()%8);
+}
+
+int rand0to1()
+{
+    return(rand()%2);
+}

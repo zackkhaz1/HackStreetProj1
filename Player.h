@@ -45,6 +45,17 @@ class Player
     void receiveHit(int xPos, int yPos);
     string getName();
 
+      
+    //start runtimeTerrors methods
+      Player(int shipNums, int aiDifficulty, string aiName);//constructor for ai
+      
+      void placeAiShips();
+      string aiEasy();
+      string aiMedium();
+      string aiHard(Board enemyBoard);
+      
+      int rand0to7();//use for ai coordinate selection
+      int rand0to1();//use for ai horizontal vs vertical selection; 0=v, 1=h
 
   private:
     Board ownBoard; /**Board containing the player's own ships.*/
