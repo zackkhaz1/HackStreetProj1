@@ -71,7 +71,7 @@ void gameManager::playerMenu()
     else if(playerChoice == '3')
        {
          cout<<"Thanks for playing!" << endl;
-         exit(-1);
+         exit(0);
        }
     else
       {
@@ -130,7 +130,7 @@ void gameManager::gameLoop()
     cin >> s;
       cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
   }
-  playerMenu();
+  exit(0);
 }
 void gameManager::playerTurn(Player &p, Player &opponent)
 {

@@ -43,7 +43,7 @@ bool Ship::isSunk()
 void Ship::addHit()
 {
 	hits = hits+1;
-	if(hits >= size){
+	if(hits >= size*2){
 			sunk = true;
 	}
 }
