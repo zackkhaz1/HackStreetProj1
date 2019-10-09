@@ -33,7 +33,7 @@ Board Player::getBoard(char choice)
 }
 void Player::placeShips()
   {
-    char tempOrient = '$';
+    string tempOrient = "$";
     string tempCoord = "";
     for(int i = 0; i < numShips; i++)
     {
@@ -44,11 +44,11 @@ void Player::placeShips()
       do
       {
         cout<<"Placing Ship of Size: "<<(i+1);
-        while (tempOrient != 'h' && tempOrient != 'v')
+        while (tempOrient != "h" && tempOrient != "v")
         {
         cout<<"\nPlease input an orientation (v for Vertical or h for Horizontal): ";
         cin>>tempOrient;
-        if (tempOrient != 'h' && tempOrient != 'v')
+        if (tempOrient != "h" && tempOrient != "v")
           {
             cout<<"Pick a valid option this time.\n";
           }
@@ -137,7 +137,7 @@ void Player::placeShips()
           validY = false;
       		break;
       	}
-        if(tempOrient == 'v')
+        if(tempOrient == "v")
         {
           if (yVal + i + 1 > 8)
           {
@@ -160,7 +160,7 @@ void Player::placeShips()
             }
           }
         }
-        else if (tempOrient == 'h')
+        else if (tempOrient == "h")
         {
           if (xVal + i + 1 > 8)
           {
