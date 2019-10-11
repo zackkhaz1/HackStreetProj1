@@ -160,11 +160,7 @@ void gameManager::gameLoop()
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
         cout<< "AI will set its ships!\n";
         Player ai(numOfShips , aiLevel, "Player AI"); //ai instantiated
-        
-        //TEST CODE
-        //ai.getBoard('o').printBoard();
-        //END TEST CODE
-        
+    
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
         cout << "Press any key(AND ENTER) to finish board setup: \n";
         cin >> s;
@@ -189,7 +185,7 @@ void gameManager::gameLoop()
             cout << "Press any key(AND ENTER) to begin AI's turn: \n"; //dont know how to make accept just keypress.
             cin >> s;
             cout<< "=======================\nAI: it's your turn!\n=======================";
-            //aiTurn(ai, p1); //UNCOMMENT LATER
+            aiTurn(ai, p1); //UNCOMMENT LATER
             //George, Grant, and Anissa to write an AITurn(ai, p1) method;
             //inside AITurn(), it will call 3 separate easy, medium, hard methods based on aiLevel
             if (p1.isDead())
@@ -310,7 +306,6 @@ if(p.fireShot(xVal,yVal, opponent))
 cout<<"TARGET BOARD: \n";
 p.getBoard('e').printBoard();
 
-
 }
 
 void gameManager::gameOver(Player winner)
@@ -336,4 +331,24 @@ void gameManager::gameOver(Player winner)
     cout<<"Whoops!  Something's not right here.\n";
     }
   }
+}
+
+
+void gameManager::aiTurn(Player &ai, Player &opponent)
+{
+    string aiShot="";
+    if(aiLevel==1) //ai easy
+    {
+        aiShot=ai.aiEasy();
+    }
+    else if(aiLevel==2) //ai medium
+    {
+        aiShot=ai.aiMedium(opponent.getBoard('o'));
+    }
+    else //ai hard
+    {
+        aiShot=ai.aiHard(opponent.getBoard('o'));
+    }
+    
+    
 }

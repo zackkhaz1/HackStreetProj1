@@ -242,6 +242,7 @@ string Player::getName()
 
 Player::Player(int shipNums, int aiDifficulty, string aiName)
 {
+    m_aiDifficulty=aiDifficulty;
     namee=aiName;
     numShips = shipNums;
     ownShips = new Ship[shipNums];
@@ -252,10 +253,9 @@ Player::Player(int shipNums, int aiDifficulty, string aiName)
     }
     //now we need to place the ships
     placeAiShips();
-    if(aiDifficulty==1) //only allow user input 1,2 or 3
+    /*if(aiDifficulty==1) //only allow user input 1,2 or 3
     {
-        //test code
-        return;
+        
     }
     else if(aiDifficulty==2)
     {
@@ -268,7 +268,12 @@ Player::Player(int shipNums, int aiDifficulty, string aiName)
     else //if aiDifficulty = $%#(any other char)
     {
       cout<<"please input number in (1,2,3)";  
-    }
+    }*/
+}
+
+int Player::getAiDifficulty()
+{
+    return(m_aiDifficulty);
 }
 
 void Player::placeAiShips()
@@ -430,14 +435,6 @@ void Player::placeAiShips()
     ownBoard.printBoard();
   }
 }
-/*
-*Hit ship every turn
-*set ai bpard randomly
-*/
-string Player::aiHard(Board enemyBoard)
-{ 
-return "";
-}
 
 
 string Player::rand0to7()
@@ -531,4 +528,22 @@ string Player::randAtoF()
     {
       return "h";
     }
+}
+
+string Player::aiEasy()
+{
+    return("");
+}
+string Player::aiMedium(Board enemyBoard)
+{
+    return("");
+}
+
+/*
+ *Hit ship every turn
+ *set ai bpard randomly
+ */
+string Player::aiHard(Board enemyBoard)
+{
+    return "";
 }
