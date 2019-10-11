@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <time.h>
 Player::Player()
 {
 
@@ -253,7 +254,8 @@ Player::Player(int shipNums, int aiDifficulty, string aiName)
     placeAiShips();
     if(aiDifficulty==1) //only allow user input 1,2 or 3
     {
-        
+        //test code
+        return;
     }
     else if(aiDifficulty==2)
     {
@@ -281,14 +283,14 @@ void Player::placeAiShips()
     bool validY = true;
     do
     {
-      cout<<"Placing Ship of Size: "<<(i+1);
+      //cout<<"Placing Ship of Size: "<<(i+1);
       while (tempOrient != "h" && tempOrient != "v")
       {
-      cout<<"\nPlease input an orientation (v for Vertical or h for Horizontal): ";
+      //cout<<"\nPlease input an orientation (v for Vertical or h for Horizontal): ";
       tempOrient = randVorH();  //cin>>tempOrient;
       if (tempOrient != "h" && tempOrient != "v")
         {
-          cout<<"Pick a valid option this time.\n";
+          //cout<<"Pick a valid option this time.\n";
         }
       }
       ownShips[i].setOrientation(tempOrient);
@@ -299,7 +301,7 @@ void Player::placeAiShips()
     bool validInput= 1;
     do
     {
-    LOOP:cout<<"Input a position for the front of the ship: ";
+    LOOP://cout<<"Input a position for the front of the ship: ";
     playerShot = randAtoF() + rand0to7();//cin >> playerShot;
     validInput= 1;
       try
@@ -309,7 +311,7 @@ void Player::placeAiShips()
       }
       catch(...)
       {
-        cout<<"Position must be in format: 'a1'\n";
+        //cout<<"Position must be in format: 'a1'\n";
         validInput = 0;
       }
     }while(validInput == 0);
@@ -340,7 +342,7 @@ void Player::placeAiShips()
         xVal = 7;
         break;
                default:
-        cout <<"X Position Out of Bounds!\n";
+        //cout <<"X Position Out of Bounds!\n";
         validX = false;
         break;
       }
@@ -371,7 +373,7 @@ void Player::placeAiShips()
         yVal = 7;
         break;
                default:
-        cout <<"Y Position Out of Bounds!\n";
+        //cout <<"Y Position Out of Bounds!\n";
         validY = false;
         break;
       }
@@ -379,7 +381,7 @@ void Player::placeAiShips()
       {
         if (yVal + i + 1 > 8)
         {
-          cout<<"Ship out of bounds!\n";
+          //cout<<"Ship out of bounds!\n";
           validY = false;
         }
         else
@@ -390,11 +392,11 @@ void Player::placeAiShips()
             {
               if(ownBoard.getPos(yVal+k,xVal) == 's')
               {
-                cout<<"\nCannot Stack Ships!\n";
+                //cout<<"\nCannot Stack Ships!\n";
                 goto LOOP;
               }
               ownBoard.setPos(yVal+k,xVal,'s');
-            } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
+            } catch (const exception& e) {/*cout << "an error occured on ship place" << e.what() << endl;*/}
           }
         }
       }
@@ -402,7 +404,7 @@ void Player::placeAiShips()
       {
         if (xVal + i + 1 > 8)
         {
-          cout<<"Ship out of bounds!\n";
+          //cout<<"Ship out of bounds!\n";
           validX = false;
         }
         else
@@ -413,11 +415,11 @@ void Player::placeAiShips()
             {
               if(ownBoard.getPos(yVal,xVal+k) == 's')
               {
-                cout<<"\nCannot Stack Ships!\n";
+                //cout<<"\nCannot Stack Ships!\n";
                 goto LOOP;
               }
               ownBoard.setPos(yVal,xVal+k,'s');
-            } catch (const exception& e) {cout << "an error occured on ship place" << e.what() << endl;}
+            } catch (const exception& e) {/*cout << "an error occured on ship place" << e.what() << endl;*/}
           }
         }
       }
@@ -440,6 +442,9 @@ return "";
 
 string Player::rand0to7()
 {
+    unsigned int seed=0;
+    seed=time(0);
+  srand(seed);
   int x = rand()%8;
   if(x == 0)
   {
@@ -477,6 +482,7 @@ string Player::rand0to7()
 
 string Player::randVorH()
 {
+  srand(time(0));
   int x = rand()%2;
   if( x == 0)
   {
@@ -490,6 +496,7 @@ string Player::randVorH()
 
 string Player::randAtoF()
 {
+    srand(time(0));
     int x = rand()%8;
     //cout<<"x"<<x<<"..";
     if(x == 0)

@@ -83,8 +83,8 @@ void gameManager::playerMenu()
             {
                 cout<<"Choose AI difficulty level (1, 2, 3): ";
                 cin>>aiLevel;
-            }while(aiLevel!=1 || aiLevel!=2 || aiLevel!=3);
-
+            }while(aiLevel!=1 && aiLevel!=2 && aiLevel!=3);
+            start=true;
         }
     else
       {
@@ -154,12 +154,17 @@ void gameManager::gameLoop()
         cout<< "Player 1, Set Your Ships!\n";
         Player p1(numOfShips,"Player 1");
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
-        cout << "Press any key(AND ENTER) to begin setting up player 2's board: \n";
+        cout << "Press any key(AND ENTER) to begin setting up player AI's board: \n";
         cin >> s;
         cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
         cout<< "AI will set its ships!\n";
         Player ai(numOfShips , aiLevel, "Player AI"); //ai instantiated
+        
+        //TEST CODE
+        //ai.getBoard('o').printBoard();
+        //END TEST CODE
+        
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
         cout << "Press any key(AND ENTER) to finish board setup: \n";
         cin >> s;
