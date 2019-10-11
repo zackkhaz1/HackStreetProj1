@@ -250,7 +250,7 @@ Player::Player(int shipNums, int aiDifficulty, string aiName)
         ownShips[i-1] = tempShip;
     }
     //now we need to place the ships
-    placeShips();
+    placeAiShips();
     if(aiDifficulty==1) //only allow user input 1,2 or 3
     {
         
