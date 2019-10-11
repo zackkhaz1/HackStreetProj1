@@ -56,7 +56,7 @@ class Player
       
       int rand0to7();//use for ai coordinate selection
       int rand0to1();//use for ai horizontal vs vertical selection; 0=v, 1=h
-
+      char randAtoF();
   private:
     Board ownBoard; /**Board containing the player's own ships.*/
     Board enemyBoard; /**Board that contains hits and missses for the player*/

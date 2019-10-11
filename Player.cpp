@@ -251,7 +251,7 @@ Player::Player(int shipNums, int aiDifficulty, string aiName)
     }
     //now we need to place the ships
     placeShips();
-    if(aiDifficulty==1)
+    if(aiDifficulty==1) //only allow user input 1,2 or 3
     {
         
     }
@@ -259,23 +259,64 @@ Player::Player(int shipNums, int aiDifficulty, string aiName)
     {
         
     }
-    else //if aiDifficulty==3
+    else if(aiDifficulty==3)
     {
         
     }
+    else //if aiDifficulty = $%#(any other char)
+    {
+      cout<<"please input number in (1,2,3)";  
+    }
 }
 
-void placeAiShips()
+void Player::placeAiShips()
 {
+    rand0to7();
     
 }
 
-int rand0to7()
+int Player::rand0to7()
 {
     return(rand()%8);
 }
 
-int rand0to1()
+int Player::rand0to1()
 {
     return(rand()%2);
+}
+char Player::randAtoF()
+{
+    int x = rand()%8;
+    if(x == 0)
+    {
+      return 'a';
+    }
+    else if(x == 1)
+    {
+      return 'b';
+    }
+    else if(x == 2)
+    {
+      return 'c';
+    }
+    else if(x == 3)
+    {
+      return 'd';
+    }
+    else if(x == 4)
+    {
+      return 'e';
+    }
+    else if(x == 5)
+    {
+      return 'f';
+    }
+    else if(x == 6)
+    {
+      return 'g';
+    }
+    else// if(x == 7)
+    {
+      return 'h';
+    }
 }
