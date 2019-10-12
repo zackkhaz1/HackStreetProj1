@@ -6,6 +6,7 @@
 #define GAMEMANAGER_H
 #include "Player.h"
 #include "Animations.h"
+#include <fstream>
 using namespace std;
 
 class gameManager
@@ -24,11 +25,11 @@ class gameManager
 
   private:
 
-      
+
       Animations animations;
 
-      
-      
+
+
     int numOfShips = 1;/**holds number of ships that each player will have. defaults to 0*/
     Player p1;/**first player */
     Player p2;/**second player*/
@@ -66,6 +67,6 @@ class gameManager
     */
     void gameOver(Player winner);
 
-
+	//	#include "scoreBoard.h"
 };
 #endif
