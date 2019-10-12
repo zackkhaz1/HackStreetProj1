@@ -67,6 +67,5 @@ class gameManager
     */
     void gameOver(Player winner);
 
-	//	#include "scoreBoard.h"
 };
 #endif
