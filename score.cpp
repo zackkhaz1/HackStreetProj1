@@ -1,11 +1,11 @@
 #include "score.h"
 
 score::score(int scoreTotal){
-	cout<< "Enter in your initials like \"xyz\", champ. ";
+	cout<< "Enter in your initials like \"xyz\", champ: ";
 	do{
 		cin>>m_initials;
 		if(m_initials.length() != 3)
-			cout<<"Please enter three characters.";
+			cout<<"Whoa there champ, just three characters: ";
 	}while(m_initials.length() != 3);
 	m_scoreTotal=scoreTotal;
 }
