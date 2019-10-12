@@ -62,7 +62,7 @@ public:
 		delete allScores;
 	}
 
-/*	void writeNewScore(score score){ ///NEEDS IMPLEMENTED
+/*	void writeNewScore(score score){ ///MIGHT NEED IMPLEMENTED
 	/*	ofstream myfile;
 	  myfile.open (outFile);
 	  myfile << "Writing this to a file.\n";
