@@ -56,7 +56,7 @@ public:
 		printScoreBoard(allScores);
 
 
-		for(int i = 0; i < getTxtSize(); i++){
+		for(int i = 0; i <= getTxtSize(); i++){
 			delete allScores[i];
 		}
 		delete allScores;
@@ -74,7 +74,7 @@ public:
 		ofstream outFile;
 		outFile.open(fileName);
 		if(outFile.is_open()) {
-			for(int i = 0; i < (getTxtSize()); i++){
+			for(int i = 0; i <= getTxtSize(); i++){
 				cout << highScores[i] << endl;
 				outfile << highScores[i] << endl;
 			}
