@@ -48,6 +48,8 @@ class Player
       void setShipHasBeenSunk(bool value);
       bool getShipHasBeenSunk();
 
+		int getScore();
+
 
   private:
     Board ownBoard; /**Board containing the player's own ships.*/
