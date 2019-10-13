@@ -4,7 +4,7 @@ score::score(){
 
 }
 score::score(int scoreTotal){
-	cout<< "Enter in your initials like \"xyz\", champ: ";
+	cout<< "\nEnter in your initials like \"xyz\", champ: ";
 	do{
 		cin>>m_initials;
 		if(m_initials.length() > 3)
