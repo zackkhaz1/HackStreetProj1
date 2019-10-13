@@ -6,6 +6,7 @@
 #define GAMEMANAGER_H
 #include "Player.h"
 #include "Animations.h"
+#include "scoreBoard.h"
 using namespace std;
 
 class gameManager
