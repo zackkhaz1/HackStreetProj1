@@ -13,7 +13,7 @@ int scoreBoard::getTxtSize(){
 	return (numScores/=2); //this determines the number of scores because each score has two entries in the txt file
 }
 
-void scoreBoard::readOldScores(score newScore){ ///NEEDS IMPLEMENTED
+void scoreBoard::readOldScores(score newScore){
 	ifstream inFile;
 	string oldInitials = "";
 	int oldScoreTotal;
@@ -50,7 +50,7 @@ void scoreBoard::readOldScores(score newScore){ ///NEEDS IMPLEMENTED
 	printScoreBoard(allScores);
 }
 
-void scoreBoard::writeNewScore(score score){ ///MIGHT NEED IMPLEMENTED
+void scoreBoard::writeNewScore(score score){
 	ofstream myfile;
 	myfile.open("scoreBoard.txt", ios_base::app);
 	myfile << score.getInitials() << "			" << score.getScoreTotal()<<endl;
@@ -68,6 +68,4 @@ void scoreBoard::printScoreBoard(vector<score> highScores){
 		for(int i = 0; i < highScores.size(); i++){
 			writeNewScore(highScores[i]);
 		}
-		//		cout << highScores[i].getInitials() << "			" << highScores[i].getScoreTotal() << endl;
-		//		outFile << highScores[i].getInitials() << "			" << highScores[i].getScoreTotal() << endl;
 }
