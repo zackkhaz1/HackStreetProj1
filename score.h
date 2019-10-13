@@ -11,7 +11,7 @@ using namespace std;
 class score {
 
 public:
-	score();
+	score(){}
 	score(int scoreTotal);
 	score(string initials, int scoreTotal);
 	string getInitials();
@@ -20,6 +20,6 @@ public:
 private:
 	string m_initials;
 	int m_scoreTotal;
-	
+
 };
 #endif

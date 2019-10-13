@@ -1,9 +1,5 @@
 #include "score.h"
 
-score::score(){
-
-}
-
 score::score(int scoreTotal){
 	cout<< "\nEnter in your initials like \"xyz\", champ: ";
 	do{
