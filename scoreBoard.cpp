@@ -10,36 +10,41 @@ int scoreBoard::getTxtSize(){
 		while (inFile >> incoming)
 			numScores++;
 	inFile.close();
-	return (numScores/=2); //this determins the number of scores because each score has two entries in the txt file
+	return (numScores/=2); //this determines the number of scores because each score has two entries in the txt file
 }
 
 void scoreBoard::readOldScores(score newScore){ ///NEEDS IMPLEMENTED
 	ifstream inFile;
 	string oldInitials = "";
 	int oldScoreTotal;
-//	score oldScore;
 	int i = 0;
 	string incoming = "";
 	bool inserted = false;
-	//score *allScores = new score[(getTxtSize()+1)]; //consider using vectors
 	vector<score> allScores;
 	inFile.open("scoreBoard.txt");
 	if(inFile.is_open()) {
 		incoming = "";
 		while (inFile >> incoming){
+
 			if(i%2 == 0){
 				oldInitials = incoming;
 			}
 			if(i%2 == 1){
+
 				oldScoreTotal = stoi(incoming);
+				if((newScore.getScoreTotal() >= oldScoreTotal)&&(!inserted)){
+					allScores.push_back(newScore);
+					inserted = true;
+				}
 				score tempScore(oldInitials, oldScoreTotal);
 				allScores.push_back(tempScore);
 			}
-			if((newScore.getScoreTotal() <= oldScoreTotal)&&(!inserted)){
-				allScores.push_back(newScore);
-				inserted = true;
-			}
+
 			i++;
+		}
+		if(!inserted){
+			allScores.push_back(newScore);
+			inserted = true;
 		}
 	}
 	printScoreBoard(allScores);
