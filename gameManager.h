@@ -22,6 +22,7 @@ class gameManager
         */
     void run();
     char playerChoice;
+		int turnCounter;
 
   private:
 

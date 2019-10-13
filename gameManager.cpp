@@ -102,6 +102,7 @@ void gameManager::gameLoop()
   system("clear");
   while(!p1.isDead() && !p2.isDead())
   {
+		turnCounter++;
     system("clear");
     cout << "Press any key(AND ENTER) to begin Player 1's turn: \n";
     cin >> s;
@@ -258,12 +259,15 @@ void gameManager::gameOver(Player winner)
     {
     cout<<"Whoops!  Something's not right here.\n";
     }
-		score winnerscore(winner.getScore());
+
+		//for the AI versions, a check could be placed here like "if ((winner.getName() = "Player 2") && (gameMode != "singlePlayer"))"
+		int finalScore = 0;
+		if(turnCounter > 0){
+			finalScore = winner.getScore()/turnCounter;
+		}
+		score winnerscore(finalScore);
 		scoreBoard scoarBored;
-
 		scoarBored.readOldScores(winnerscore);
-		//scoreBoard.printScoreBoard();
-
 
   }
 }
