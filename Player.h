@@ -44,9 +44,13 @@ class Player
         */
     void receiveHit(int xPos, int yPos);
     string getName();
-    
+
       void setShipHasBeenSunk(bool value);
       bool getShipHasBeenSunk();
+
+		int getScore(){
+			return score;
+		}
 
 
   private:
@@ -54,7 +58,8 @@ class Player
     Board enemyBoard; /**Board that contains hits and missses for the player*/
     int numShips;/**number of ships assigned to each player*/
     Ship* ownShips; /**Points toward array of ships owned by the player*/
-    string namee;\
+    string namee;
+		int score;
       bool shipHasBeenSunk;
   };
 #endif

@@ -201,6 +201,7 @@ bool Player::fireShot(int row, int col, Player &target)
         target.receiveHit(row, col);
         enemyBoard.setPos(col,row, 'h');//h represents a ship turned into a hit
         animations.playHit();
+				score+=120;
         return true;
     }
     else if(target.getBoard('o').getPos(col,row) == '|')// '|' represents empty water
