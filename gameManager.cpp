@@ -258,5 +258,12 @@ void gameManager::gameOver(Player winner)
     {
     cout<<"Whoops!  Something's not right here.\n";
     }
+		score winnerscore(winner.getScore());
+		scoreBoard scoarBored;
+
+		scoarBored.readOldScores(winnerscore);
+		//scoreBoard.printScoreBoard();
+
+
   }
 }
