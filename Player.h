@@ -48,7 +48,9 @@ class Player
       void setShipHasBeenSunk(bool value);
       bool getShipHasBeenSunk();
 
-		int getScore();
+		int getScore(){
+			return score;
+		}
 
 
   private:
