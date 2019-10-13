@@ -1,6 +1,7 @@
 #ifndef SCOREBOARD_H
 #define SCOREBOARD_H
 #include "score.h"
+#include <vector>
 
 using namespace std;
 
@@ -17,22 +18,22 @@ public:
 		if(inFile.is_open())
 			while (inFile >> incoming)
 				numScores++;
-		inFile.close()
+		inFile.close();
 		return (numScores/=2); //this determins the number of scores because each score has two entries in the txt file
-
 	}
 
-	score* readOldScores(score newScore){ ///NEEDS IMPLEMENTED
+	void readOldScores(score newScore){ ///NEEDS IMPLEMENTED
 		ifstream inFile;
 		string oldInitials = "";
 		int oldScoreTotal;
-		score oldScore;
+	//	score oldScore;
 		int i = 0;
 		int j = 0;
 		string incoming = "";
-		bool inserted = false
-		score* allScores = new score[getTxtSize()+1];
-
+		bool inserted = false;
+		//score *allScores = new score[(getTxtSize()+1)]; //consider using vectors
+		vector<score> allScores(getTxtSize()+1);
+		score tempscore;
 		inFile.open(fileName);
 		if(inFile.is_open()) {
 			incoming = "";
@@ -43,11 +44,12 @@ public:
 				if(i%2 == 1){
 					oldScoreTotal = stoi(incoming);
 					if((newScore.getScoreTotal() >= oldScoreTotal)&&(!inserted)){
-						allScores[j] = newScore;
+						allScores.push_back(newScore);
 						inserted = false;
 						j++;
 					}
-					allScores[j] = new score(oldInitials, oldScoreTotal);
+					score tempscore(oldInitials, oldScoreTotal);
+					allScores[j] = tempscore;
 				}
 				i++;
 			}
@@ -56,36 +58,42 @@ public:
 		printScoreBoard(allScores);
 
 
-		for(int i = 0; i <= getTxtSize(); i++){
-			delete allScores[i];
+	/*	for(int i = 0; i <= getTxtSize(); i++){
+			delete[] allScores[i];
 		}
-		delete allScores;
+		delete[] allScores;
+		*/
 	}
-
 /*	void writeNewScore(score score){ ///MIGHT NEED IMPLEMENTED
-	/*	ofstream myfile;
+		ofstream myfile;
 	  myfile.open (outFile);
 	  myfile << "Writing this to a file.\n";
 	  myfile.close();
 	}
 */
 
-	void printScoreBoard(score* highScores){
+	void printScoreBoard(vector<score> highScores){
 		ofstream outFile;
 		outFile.open(fileName);
 		if(outFile.is_open()) {
 			for(int i = 0; i <= getTxtSize(); i++){
-				cout << highScores[i] << endl;
-				outfile << highScores[i] << endl;
+		//		cout << highScores[i] << endl;
+		//		outfile << highScores[i] << endl;
 			}
-		outfile.close();
+		outFile.close();
 		}
 	}
+
+	friend ostream& operator<<(ostream &os, score& right){
+		os << right.getInitials() << "			" << right.getScoreTotal();
+		return os;
+	}
+
 
 
 private:
 	string fileName = "scoreBoard.txt";
 
-}
+};
 
 #endif
