@@ -160,7 +160,7 @@ void gameManager::gameLoop()
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
         cout<< "AI will set its ships!\n";
         Player ai(numOfShips , aiLevel, "Player AI"); //ai instantiated
-    
+
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
         cout << "Press any key(AND ENTER) to finish board setup: \n";
         cin >> s;
@@ -336,7 +336,23 @@ void gameManager::gameOver(Player winner)
 
 void gameManager::aiTurn(Player &ai, Player &opponent)
 {
-    string aiShot="";
+
+    cout << '\n';
+  cout<<"AI BOARD: \n";
+  ai.getBoard('o').printBoard(); //'o' represents "own board"
+  cout<<"\nTARGET BOARD: \n";
+  ai.getBoard('e').printBoard(); //'e' represents "enemy board"
+  cout << '\n';
+  int xVal =0;
+  int yVal =0;
+  bool validX = true;
+  bool validY = true;
+do
+{
+  validX = true;
+  validY = true;
+  char xTemp = ' ';
+     string aiShot="";
     if(aiLevel==1) //ai easy
     {
         aiShot=ai.aiEasy();
@@ -349,6 +365,88 @@ void gameManager::aiTurn(Player &ai, Player &opponent)
     {
         aiShot=ai.aiHard(opponent.getBoard('o'));
     }
-    
-    
+  //cout << "Enter space to fire at: ";
+  xTemp = tolower(aiShot.at(0));
+  yVal = aiShot.at(1);
+    switch (xTemp)
+	{
+           case 'a':
+		xVal = 0;
+		break;
+	         case 'b':
+		xVal = 1;
+		break;
+           case 'c':
+		xVal = 2;			//switch block transforms first char in input string from the player into integer value.
+		break;
+	         case 'd':
+		xVal = 3;
+		break;
+           case 'e':
+		xVal = 4;
+		break;
+	         case 'f':
+		xVal = 5;
+		break;
+           case 'g':
+		xVal = 6;
+		break;
+	         case 'h':
+		xVal = 7;
+		break;
+	         default:
+		//cout <<"X Position Out of Bounds!\n";
+    validX = false;
+		break;
+  }
+    switch (yVal)
+	{
+           case '1':
+		yVal = 0;
+		break;
+	         case '2':
+		yVal = 1;
+		break;
+           case '3':
+		yVal = 2;			//switch block transforms second char into integer value for grid.
+		break;
+	         case '4':
+		yVal = 3;
+		break;
+           case '5':
+		yVal = 4;
+		break;
+	         case '6':
+		yVal = 5;
+		break;
+           case '7':
+		yVal = 6;
+		break;
+	         case '8':
+		yVal = 7;
+		break;
+	         default:
+		//cout <<"Y Position Out of Bounds!\n";
+    validY = false;
+		break;
+	}
+  if (ai.getBoard('e').getPos(yVal, xVal) == 'm' || ai.getBoard('e').getPos(yVal, xVal) == 'h')
+  {
+    //cout << "Already fired here!\n";
+    validX = false;
+    validY = false;
+  }
+} while (!validX || !validY);
+
+if(ai.fireShot(xVal,yVal, opponent))
+{
+  opponent.receiveHit(xVal, yVal);
+}
+cout<<"TARGET BOARD: \n";
+ai.getBoard('e').printBoard();
+
+
+
+
+
 }

@@ -541,9 +541,106 @@ string Player::aiMedium(Board enemyBoard)
 
 /*
  *Hit ship every turn
- *set ai bpard randomly
+ *set ai bpard randomly //done
  */
 string Player::aiHard(Board enemyBoard)
 {
-    return "";
+    string Pos_x = " ";
+    string Pos_y = " ";
+    for(int i=0; i<8; i++)
+    {
+        for(int j=0; j<8; j++)
+        {
+            if(enemyBoard.getPos(i,j)=='s')
+            {
+                Pos_x = NumtoStrAF(j);
+                Pos_y = NumtoStr18(i);
+                return (Pos_x + Pos_y);
+            }
+        }
+    }
+    if(Pos_x==" " && Pos_y==" ")//this means there is no ship on the board
+    {
+        return ("all sunk");//does not mean anything but the function need something to returns
+    }
+    else//find a ship
+    {
+        return ("nothing");
+        //return (Pos_x + Pos_y);
+    }
 }
+
+string Player::NumtoStrAF(int x)
+{
+    if(x == 0)
+    {
+      return "a";
+    }
+    else if(x == 1)
+    {
+      return "b";
+    }
+    else if(x == 2)
+    {
+      return "c";
+    }
+    else if(x == 3)
+    {
+      return "d";
+    }
+    else if(x == 4)
+    {
+      return "e";
+    }
+    else if(x == 5)
+    {
+      return "f";
+    }
+    else if(x == 6)
+    {
+      return "g";
+    }
+    else// if(x == 7)
+    {
+      return "h";
+    }
+}
+
+string Player::NumtoStr18(int x)
+{
+    if(x == 0)
+    {
+      return "1";
+    }
+    else if(x == 1)
+    {
+      return "2";
+    }
+    else if(x == 2)
+    {
+      return "3";
+    }
+    else if(x == 3)
+    {
+      return "4";
+    }
+    else if(x == 4)
+    {
+      return "5";
+    }
+    else if(x == 5)
+    {
+      return "6";
+    }
+    else if(x == 6)
+    {
+      return "7";
+    }
+    else// if(x == 7)
+    {
+      return "8";
+    }
+}
+
+
+
