@@ -22,11 +22,6 @@ score::score(string initials, int scoreTotal){
 	m_scoreTotal = scoreTotal;
 }
 
-friend ostream& operator<<(ostream &os, score& right){
-		os << right.getInitials() << "			" << right[i].getScoreTotal();
-		return os;
-}
-
 string score::getInitials(){
 	return m_initials;
 }
