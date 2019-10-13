@@ -263,7 +263,7 @@ void gameManager::gameOver(Player winner)
 		//for the AI versions, a check could be placed here like "if ((winner.getName() = "Player 2") && (gameMode != "singlePlayer"))"
 		int finalScore = 0;
 		if(turnCounter > 0){
-			finalScore = winner.getScore()/turnCounter;
+			finalScore = winner.getScore()/turnCounter; //finalScore is 120 per hit, divided by the number of turns taken
 		}
 		score winnerscore(finalScore);
 		scoreBoard scoarBored;
