@@ -5,9 +5,9 @@ score::score(int scoreTotal){
 	do{
 		cin>>m_initials;
 		if(m_initials.length() > 3)
-			cout<<"Whoa there champ, just three characters: ";
+			cout<<"\nWhoa there champ, just three characters: ";
 		if(m_initials.length() < 3)
-			cout<<"Come on champ, type all three characters: ";
+			cout<<"\nCome on champ, type all three characters: ";
 
 	}while(m_initials.length() != 3);
 	m_scoreTotal=scoreTotal;
