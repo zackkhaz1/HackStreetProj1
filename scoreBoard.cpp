@@ -5,7 +5,7 @@ int scoreBoard::getTxtSize(){
 	string incoming = "";
 	int numScores = 0;
 
-	inFile.open(fileName);
+	inFile.open("scoreBoard.txt");
 	if(inFile.is_open())
 		while (inFile >> incoming)
 			numScores++;
@@ -19,13 +19,11 @@ void scoreBoard::readOldScores(score newScore){ ///NEEDS IMPLEMENTED
 	int oldScoreTotal;
 //	score oldScore;
 	int i = 0;
-	int j = 0;
 	string incoming = "";
 	bool inserted = false;
 	//score *allScores = new score[(getTxtSize()+1)]; //consider using vectors
-	vector<score> allScores(getTxtSize()+1);
-	score tempscore;
-	inFile.open(fileName);
+	vector<score> allScores;
+	inFile.open("scoreBoard.txt");
 	if(inFile.is_open()) {
 		incoming = "";
 		while (inFile >> incoming){
@@ -34,43 +32,37 @@ void scoreBoard::readOldScores(score newScore){ ///NEEDS IMPLEMENTED
 			}
 			if(i%2 == 1){
 				oldScoreTotal = stoi(incoming);
-				if((newScore.getScoreTotal() >= oldScoreTotal)&&(!inserted)){
-					allScores.push_back(newScore);
-					inserted = true;
-					j++;
-				}
-				score tempscore(oldInitials, oldScoreTotal);
-				allScores[j] = tempscore;
+				score tempScore(oldInitials, oldScoreTotal);
+				allScores.push_back(tempScore);
+			}
+			if((newScore.getScoreTotal() <= oldScoreTotal)&&(!inserted)){
+				allScores.push_back(newScore);
+				inserted = true;
 			}
 			i++;
 		}
 	}
-	cout << "High Scores:\n";
 	printScoreBoard(allScores);
-
-
-/*	for(int i = 0; i <= getTxtSize(); i++){
-		delete[] allScores[i];
-	}
-	delete[] allScores;
-	*/
 }
-/*	void writeNewScore(score score){ ///MIGHT NEED IMPLEMENTED
+
+void scoreBoard::writeNewScore(score score){ ///MIGHT NEED IMPLEMENTED
 	ofstream myfile;
-	myfile.open (outFile);
-	myfile << "Writing this to a file.\n";
+	myfile.open("scoreBoard.txt", ios_base::app);
+	myfile << score.getInitials() << "			" << score.getScoreTotal()<<endl;
+	cout << score.getInitials() << "			" << score.getScoreTotal()<<endl;
 	myfile.close();
 }
-*/
+
 
 void scoreBoard::printScoreBoard(vector<score> highScores){
-	ofstream outFile;
-	outFile.open(fileName);
-	if(outFile.is_open()) {
-		for(int i = 0; i <= getTxtSize(); i++){
-			cout << highScores[i] << endl;
-			outfile << highScores[i] << endl;
+		cout << "High Scores:\n";
+		ofstream myfile;
+		myfile.open("scoreBoard.txt");
+		myfile << "";
+		myfile.close();
+		for(int i = 0; i < highScores.size(); i++){
+			writeNewScore(highScores[i]);
 		}
-	outFile.close();
-	}
+		//		cout << highScores[i].getInitials() << "			" << highScores[i].getScoreTotal() << endl;
+		//		outFile << highScores[i].getInitials() << "			" << highScores[i].getScoreTotal() << endl;
 }
