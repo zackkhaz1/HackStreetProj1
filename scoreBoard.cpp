@@ -36,7 +36,7 @@ void scoreBoard::readOldScores(score newScore){ ///NEEDS IMPLEMENTED
 				oldScoreTotal = stoi(incoming);
 				if((newScore.getScoreTotal() >= oldScoreTotal)&&(!inserted)){
 					allScores.push_back(newScore);
-					inserted = false;
+					inserted = true;
 					j++;
 				}
 				score tempscore(oldInitials, oldScoreTotal);
@@ -68,8 +68,8 @@ void scoreBoard::printScoreBoard(vector<score> highScores){
 	outFile.open(fileName);
 	if(outFile.is_open()) {
 		for(int i = 0; i <= getTxtSize(); i++){
-	//		cout << highScores[i] << endl;
-	//		outfile << highScores[i] << endl;
+			cout << highScores[i] << endl;
+			outfile << highScores[i] << endl;
 		}
 	outFile.close();
 	}

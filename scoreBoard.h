@@ -13,10 +13,11 @@ public:
 	void readOldScores(score newScore);
 	void printScoreBoard(vector<score> highScores);
 
-	friend ostream& operator<<(ostream &os, score& right){
-		os << right.getInitials() << "			" << right.getScoreTotal();
-		return os;
+/*	friend ostream& operator<<(ostream &os, vector<score>& right){
+			os << right << endl;
+			return os;
 	}
+*/
 
 private:
 	string fileName = "scoreBoard.txt";

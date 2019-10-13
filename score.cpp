@@ -3,6 +3,7 @@
 score::score(){
 
 }
+
 score::score(int scoreTotal){
 	cout<< "\nEnter in your initials like \"xyz\", champ: ";
 	do{
@@ -19,6 +20,11 @@ score::score(int scoreTotal){
 score::score(string initials, int scoreTotal){
 	m_initials = initials;
 	m_scoreTotal = scoreTotal;
+}
+
+friend ostream& operator<<(ostream &os, score& right){
+		os << right.getInitials() << "			" << right[i].getScoreTotal();
+		return os;
 }
 
 string score::getInitials(){

@@ -13,6 +13,7 @@ public:
 	score(string initials, int scoreTotal);
 	string getInitials();
 	int getScoreTotal();
+	friend ostream& operator<<(ostream &os, vector<score>& right);
 
 
 private:
