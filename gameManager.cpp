@@ -332,9 +332,6 @@ void gameManager::gameOver(Player winner)
     }
   }
 }
-<<<<<<< HEAD
-=======
-
 
 void gameManager::aiTurn(Player &ai, Player &opponent)
 {
@@ -354,4 +351,3 @@ void gameManager::aiTurn(Player &ai, Player &opponent)
 
 
 }
->>>>>>> ffa011f066d61125a9fb2e76e0ca98cb532aad5d
