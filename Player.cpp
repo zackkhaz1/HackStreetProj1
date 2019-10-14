@@ -440,7 +440,7 @@ void Player::placeAiShips()
 string Player::rand0to7()
 {
     unsigned int seed=0;
-    seed=time(0);
+    seed=(unsigned int)time(0);
   srand(seed);
   int x = rand()%8;
   if(x == 0)
@@ -479,7 +479,7 @@ string Player::rand0to7()
 
 string Player::randVorH()
 {
-  srand(time(0));
+  srand((unsigned int)time(0));
   int x = rand()%2;
   if( x == 0)
   {
@@ -493,7 +493,7 @@ string Player::randVorH()
 
 string Player::randAtoF()
 {
-    srand(time(0));
+    srand((unsigned int)time(0));
     int x = rand()%8;
     //cout<<"x"<<x<<"..";
     if(x == 0)
