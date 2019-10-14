@@ -6,7 +6,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <string>
-
+#include <stdlib.h>  
 using namespace std;
 
 class Player
@@ -51,17 +51,22 @@ class Player
       
       void placeAiShips();
       string aiEasy();
-      string aiMedium();
-      string aiHard(Board enemyBoard);
+      string aiMedium(Board enemyBoard);
+      string aiHard(Board enemyBoard);//hit the ememy's ship
       
-      int rand0to7();//use for ai coordinate selection
-      int rand0to1();//use for ai horizontal vs vertical selection; 0=v, 1=h
-
+      string rand0to7();//use for ai coordinate selection
+      string randVorH();//use for ai horizontal vs vertical selection; 0=v, 1=h
+      string randAtoF();
+      
+      int getAiDifficulty();
+      
   private:
     Board ownBoard; /**Board containing the player's own ships.*/
     Board enemyBoard; /**Board that contains hits and missses for the player*/
     int numShips;/**number of ships assigned to each player*/
     Ship* ownShips; /**Points toward array of ships owned by the player*/
     string namee;
+      
+      int m_aiDifficulty;
   };
 #endif

@@ -83,8 +83,8 @@ void gameManager::playerMenu()
             {
                 cout<<"Choose AI difficulty level (1, 2, 3): ";
                 cin>>aiLevel;
-            }while(aiLevel!=1 || aiLevel!=2 || aiLevel!=3);
-
+            }while(aiLevel!=1 && aiLevel!=2 && aiLevel!=3);
+            start=true;
         }
     else
       {
@@ -154,12 +154,13 @@ void gameManager::gameLoop()
         cout<< "Player 1, Set Your Ships!\n";
         Player p1(numOfShips,"Player 1");
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
-        cout << "Press any key(AND ENTER) to begin setting up player 2's board: \n";
+        cout << "Press any key(AND ENTER) to begin setting up player AI's board: \n";
         cin >> s;
         cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
         cout<< "AI will set its ships!\n";
         Player ai(numOfShips , aiLevel, "Player AI"); //ai instantiated
+
         //BUNCH OF NEW LINES SO PLAYERS BOARDS Stay PRIVATE in FULLSCREEN GAMEPLAY
         cout << "Press any key(AND ENTER) to finish board setup: \n";
         cin >> s;
@@ -184,7 +185,7 @@ void gameManager::gameLoop()
             cout << "Press any key(AND ENTER) to begin AI's turn: \n"; //dont know how to make accept just keypress.
             cin >> s;
             cout<< "=======================\nAI: it's your turn!\n=======================";
-            //aiTurn(ai, p1); //UNCOMMENT LATER
+            aiTurn(ai, p1); //UNCOMMENT LATER
             //George, Grant, and Anissa to write an AITurn(ai, p1) method;
             //inside AITurn(), it will call 3 separate easy, medium, hard methods based on aiLevel
             if (p1.isDead())
@@ -305,7 +306,6 @@ if(p.fireShot(xVal,yVal, opponent))
 cout<<"TARGET BOARD: \n";
 p.getBoard('e').printBoard();
 
-
 }
 
 void gameManager::gameOver(Player winner)
@@ -332,3 +332,26 @@ void gameManager::gameOver(Player winner)
     }
   }
 }
+<<<<<<< HEAD
+=======
+
+
+void gameManager::aiTurn(Player &ai, Player &opponent)
+{
+    string aiShot="";
+    if(aiLevel==1) //ai easy
+    {
+        aiShot=ai.aiEasy();
+    }
+    else if(aiLevel==2) //ai medium
+    {
+        aiShot=ai.aiMedium(opponent.getBoard('o'));
+    }
+    else //ai hard
+    {
+        aiShot=ai.aiHard(opponent.getBoard('o'));
+    }
+
+
+}
+>>>>>>> ffa011f066d61125a9fb2e76e0ca98cb532aad5d
