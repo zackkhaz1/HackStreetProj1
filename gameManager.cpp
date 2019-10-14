@@ -13,7 +13,7 @@ gameManager::gameManager()
 
 gameManager::~gameManager()
   {
-
+      
   }
 
 void gameManager::run()
@@ -331,6 +331,8 @@ void gameManager::gameOver(Player winner)
     cout<<"Whoops!  Something's not right here.\n";
     }
   }
+    
+    exit(0);
 }
 
 void gameManager::aiTurn(Player &ai, Player &opponent)
