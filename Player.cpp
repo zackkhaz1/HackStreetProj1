@@ -253,22 +253,6 @@ Player::Player(int shipNums, int aiDifficulty, string aiName)
     }
     //now we need to place the ships
     placeAiShips();
-    /*if(aiDifficulty==1) //only allow user input 1,2 or 3
-    {
-        
-    }
-    else if(aiDifficulty==2)
-    {
-        
-    }
-    else if(aiDifficulty==3)
-    {
-        //aiHard(enemyBoard)
-    }
-    else //if aiDifficulty = $%#(any other char)
-    {
-      cout<<"please input number in (1,2,3)";  
-    }*/
 }
 
 int Player::getAiDifficulty()
@@ -532,7 +516,18 @@ string Player::randAtoF()
 
 string Player::aiEasy()
 {
-    return("");
+    string aiShot="";
+    //int arrCounter=0;
+    //string* arrOfShots=new string[5000];//make array to store attempted shots
+    //for(int i=0; i<5000; i++)//initialize array
+    //{
+    //    arrOfShots[i]="";
+    //}
+    
+    aiShot = randAtoF() + rand0to7();
+    
+    //delete [] arrOfShots;
+    return(aiShot);
 }
 string Player::aiMedium(Board enemyBoard)
 {
