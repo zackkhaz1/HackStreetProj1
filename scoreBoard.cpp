@@ -54,18 +54,23 @@ void scoreBoard::writeNewScore(score score){
 	ofstream myfile;
 	myfile.open("scoreBoard.txt", ios_base::app);
 	myfile << score.getInitials() << "			" << score.getScoreTotal()<<endl;
-	cout << score.getInitials() << "			" << score.getScoreTotal()<<endl;
+	cout << "|            "<<score.getInitials() << "            |            " << score.getScoreTotal()<<"           |"<<endl;
 	myfile.close();
 }
 
 
 void scoreBoard::printScoreBoard(vector<score> highScores){
-		cout << "High Scores:\n";
-		ofstream myfile;
+        cout << "--------------------------------------------------------\n";
+        cout << "|                      High Scores                     |\n";
+        cout << "--------------------------------------------------------\n";
+        cout << "|          Initials         |           Score          |\n";
+        cout << "--------------------------------------------------------\n";
+        ofstream myfile;
 		myfile.open("scoreBoard.txt");
 		myfile << "";
 		myfile.close();
 		for(int i = 0; i < highScores.size(); i++){
 			writeNewScore(highScores[i]);
 		}
+        cout << "--------------------------------------------------------\n";
 }

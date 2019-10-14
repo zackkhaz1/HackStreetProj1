@@ -16,6 +16,7 @@ Player::Player(int shipNums,string name)
       placeShips();
       namee = name;
       shipHasBeenSunk=false;
+      score = 0;
   }
 Player::~Player()
 {
@@ -201,13 +202,14 @@ bool Player::fireShot(int row, int col, Player &target)
         target.receiveHit(row, col);
         enemyBoard.setPos(col,row, 'h');//h represents a ship turned into a hit
         animations.playHit();
-				score+=120;
+				score = score + 120;
         return true;
     }
     else if(target.getBoard('o').getPos(col,row) == '|')// '|' represents empty water
     {
       enemyBoard.setPos(col,row,'m');//m represents a miss that landed in water.
       animations.playMiss();
+                score = score - 50;
       return false;
     }
     return false;
