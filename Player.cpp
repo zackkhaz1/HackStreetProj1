@@ -282,6 +282,27 @@ int rand0to1()
 
 string Player::aiMedium(Board enemyBoard)
 {
+   //checks if ship is snuck and clears of 1's
+  bool shipSunk = true;
+  for(int i = 0;i < 8;i++){
+    for(int j = 0;j < 8;j++){
+      if(aiMediumArray[i][j] == "1" && enemyBoard.getPos(i, j) == 's'){
+        shipSunk == false;
+      }
+    }
+  }
+
+  if(shipSunk){
+    for(int i = 0;i < 8;i++){
+      for(int j = 0;j < 8;j++){
+        if(aiMediumArray[i][j] == "1"){
+          aiMediumArray[i][j] = "";
+        }
+      }
+    }
+  }
+  
+  
   bool nextShot = false;
   int row = 0;
   int col = 0;
