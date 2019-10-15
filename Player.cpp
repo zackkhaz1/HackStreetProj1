@@ -279,3 +279,8 @@ int rand0to1()
 {
     return(rand()%2);
 }
+
+string Player::aiMedium(Board enemyBoard)
+{
+  
+}
