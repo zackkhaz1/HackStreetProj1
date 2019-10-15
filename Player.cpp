@@ -282,5 +282,54 @@ int rand0to1()
 
 string Player::aiMedium(Board enemyBoard)
 {
-  
+  bool nextShot = false;
+  int row = 0;
+  int col = 0;
+
+  for(int i = 0;i < 8;i ++){
+    for(int j = 0;j < 8;j++){
+      if(aiMediumArray[i][j] == "1"){
+        nextShot = true;
+        row = i;
+        col = j;
+        break;
+      }
+    }
+  }
+
+  if(nextShot)//knows what that next shot should be
+  {
+    aiMediumArray[row][col] = "m";
+    return NumtoStrAF(row) + to_string(col);
+  }
+  else//randomly picks a new shot
+  {
+    //picks a random shot, that is not a hit or miss
+    int randomRow = 0;
+    int randomCol = 0;
+    do{
+      randomRow = stoi(rand0to7());
+      randomCol = stoi(rand0to7());
+
+    }while(!(aiMediumArray[randomRow][randomCol] != "h" && aiMediumArray[randomRow][randomCol] != "m"));
+      
+    if(enemyBoard.getPos(randomRow, randomCol) == 's'){
+      //put 1s around the random shot.
+      if(randomRow + 1 < 8){
+        aiMediumArray[randomRow+1][randomCol] = "1";
+      }
+      else if(randomRow -1 >= 0)
+      {
+        aiMediumArray[randomRow-1][randomCol] = "1";
+      }
+      else if(randomCol + 1 < 8)
+      {
+        aiMediumArray[randomRow][randomCol+1] = "1";
+      }
+      else if(randomCol - 1 >= 0){
+        aiMediumArray[randomRow][randomCol-1] = "1";
+      }
+    }
+    return NumtoStrAF(randomRow) + NumtoStr18(randomCol);
+  }
 }
