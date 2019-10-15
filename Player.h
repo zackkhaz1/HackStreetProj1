@@ -63,5 +63,9 @@ class Player
     int numShips;/**number of ships assigned to each player*/
     Ship* ownShips; /**Points toward array of ships owned by the player*/
     string namee;
+    
+    //array for aiMedium
+    string aiMediumArray[8][8];
+    
   };
 #endif
