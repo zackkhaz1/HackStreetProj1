@@ -57,7 +57,8 @@ class Player
       string rand0to7();//use for ai coordinate selection
       string randVorH();//use for ai horizontal vs vertical selection; 0=v, 1=h
       string randAtoF();
-      
+      string NumtoStrAF(int x);
+      string NumtoStr18(int x);
       int getAiDifficulty();
       
   private:
@@ -67,6 +68,6 @@ class Player
     Ship* ownShips; /**Points toward array of ships owned by the player*/
     string namee;
       
-      int m_aiDifficulty;
+    int m_aiDifficulty;
   };
 #endif
