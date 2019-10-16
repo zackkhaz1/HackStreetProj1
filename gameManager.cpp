@@ -1,4 +1,11 @@
+/**
+@author Hunter Cobb,Brandon Wheat,William Burdick, Zackariah Khazraeinazmpour, Justin Khounsombath, Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+@date 10/16/19
+@file gameManager.h
+@brief implements gameManager.h methods
+*/
 #include "gameManager.h"
+#include "Animations.h"
 #include <cctype>
 using namespace std;
 
@@ -310,17 +317,18 @@ p.getBoard('e').printBoard();
 
 void gameManager::gameOver(Player winner)
 {
+  Animations animations;
   playerChoice = 17;
   start = false;
   cout<<"============\nGAME OVER\n============\n";
   {
     if(winner.getName() == "Player 1")
     {
-      cout<<"\nPlayer 1 Wins!\n";
+        animations.playP1Wins();
     }
     else if(winner.getName() == "Player 2")
     {
-      cout<< "\nPlayer 2 Wins!\n";
+        animations.playP2Wins();
     }
     else if(winner.getName() == "Player AI")
     {
@@ -330,9 +338,18 @@ void gameManager::gameOver(Player winner)
     {
     cout<<"Whoops!  Something's not right here.\n";
     }
-  }
 
-    exit(0);
+		//for the AI versions, a check could be placed here like "if ((winner.getName() = "Player 2") && (gameMode != "singlePlayer"))"
+		int finalScore = 0;
+		if(turnCounter > 0){
+			finalScore = winner.getScore()/turnCounter; //finalScore is 120 per hit, divided by the number of turns taken
+		}
+		score winnerscore(finalScore);
+		scoreBoard scoarBored;
+		scoarBored.readOldScores(winnerscore);
+
+  }
+  exit(0);
 }
 
 void gameManager::aiTurn(Player &ai, Player &opponent)
@@ -445,6 +462,5 @@ if(ai.fireShot(xVal,yVal, opponent))
 }
 cout<<"TARGET BOARD: \n";
 ai.getBoard('e').printBoard();
-
 
 }

@@ -1,6 +1,8 @@
-/** @brief Ship class that handles all cases of ships being shot. Is used by player to store ship information as a type of data structure.
+/**
     @author William Burdick,Hunter Cobb, Brandon Wheat, Zackariah Khazraeinazmpour, Justin Khounsombath
     @date September 22, 2019
+    @file Ship.h
+    @brief Ship class that handles all cases of ships being shot. Is used by player to store ship information as a type of data structure.
     */
 #ifndef SHIP_H
 #define SHIP_H

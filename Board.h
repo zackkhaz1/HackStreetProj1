@@ -1,6 +1,8 @@
-/** @brief Board Class that acts as a data structure to store ship placement.
+/**
     @author Zackariah Khazraeinazmpour,Hunter Cobb, Brandon Wheat, Justin Khounsombath, William Burdick
     @date September 22, 2019
+    @file Board.h
+    @brief Board Class that acts as a data structure to store ship placement.
     */
 #ifndef BOARD_H
 #define BOARD_H

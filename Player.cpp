@@ -1,5 +1,13 @@
+/**
+@author Brandon Wheat,William Burdick,Hunter Cobb, Zackariah Khazraeinazmpour, Justin Khounsombath, Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+@date 10/16/19
+@file Player.h
+@brief Implements methods in Player.h
+*/
 #include "Player.h"
 #include <time.h>
+#include "Animations.h"
+
 Player::Player()
 {
 
@@ -15,6 +23,8 @@ Player::Player(int shipNums,string name)
       }
       placeShips();
       namee = name;
+      shipHasBeenSunk=false;
+      score = 0;
   }
 Player::~Player()
 {
@@ -194,15 +204,19 @@ void Player::placeShips()
   }
 bool Player::fireShot(int row, int col, Player &target)
 {
+    Animations animations;
     if(target.getBoard('o').getPos(col,row) == 's') //where s represents a ships presence. 'o represents the targets "ownBoard"'
     {
         target.receiveHit(row, col);
         enemyBoard.setPos(col,row, 'h');//h represents a ship turned into a hit
+        animations.playHit();
+				score = score + 120;
         return true;
     }
     else if(target.getBoard('o').getPos(col,row) == '|')// '|' represents empty water
     {
       enemyBoard.setPos(col,row,'m');//m represents a miss that landed in water.
+      animations.playMiss();
       return false;
     }
     return false;
@@ -210,12 +224,17 @@ bool Player::fireShot(int row, int col, Player &target)
 
 void Player::receiveHit(int xPos, int yPos)
 {
+    Animations animations;
 ownBoard.setPos(yPos, xPos, 'h');
   for (int i = 0; i < numShips; i++)
   {
     if (ownShips[i].coordCheck(xPos, yPos))
     {
       ownShips[i].addHit();
+        if(ownShips[i].isSunk() && shipHasBeenSunk==false){
+            animations.playSunk();
+            shipHasBeenSunk=true;
+        }
       break;
     }
   }
@@ -739,5 +758,16 @@ string Player::aiMedium(Board enemyBoard)
 
     return NumtoStrAF(randomRow) + NumtoStr18(randomCol);
   }
+
+
+void Player::setShipHasBeenSunk(bool value){
+    shipHasBeenSunk=value;
+}
+bool Player::getShipHasBeenSunk(){
+    return shipHasBeenSunk;
+}
+
+int Player::getScore(){
+		return score;
 
 }

@@ -1,3 +1,9 @@
+/**
+@author William Burdick,Hunter Cobb, Brandon Wheat, Zackariah Khazraeinazmpour, Justin Khounsombath
+@date September 22, 2019
+@file Ship.cpp
+@brief Implements Ship.h methods
+*/
 #include "Ship.h"
 #include <iostream>
 #include <string>
