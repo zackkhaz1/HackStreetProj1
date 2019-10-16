@@ -46,6 +46,12 @@ class Player
     string getName();
     void setShipHasBeenSunk(bool value);
     bool getShipHasBeenSunk();
+
+		/* getter function for score varable
+		@pre player must have been constructed
+		@param none
+		@return returns the player's member variable score
+		*/
 		int getScore();
 
 
@@ -55,7 +61,7 @@ class Player
     int numShips;/**number of ships assigned to each player*/
     Ship* ownShips; /**Points toward array of ships owned by the player*/
     string namee;
-		int score;
+		int score; //a player gets 120 points per hit on an enemy ship
     bool shipHasBeenSunk;
   };
 #endif
