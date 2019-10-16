@@ -1,6 +1,8 @@
-/** @brief GameManager acts as the executive class in this game. it has the main gameloop, stores the players, and ends the game when nescessary.
-    @author Hunter Cobb,Brandon Wheat,William Burdick, Zackariah Khazraeinazmpour, Justin Khounsombath
-    @date September 22, 2019
+/**
+    @author Hunter Cobb,Brandon Wheat,William Burdick, Zackariah Khazraeinazmpour, Justin Khounsombath, Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+    @date 10/16/19
+    @file gameManager.h
+    @brief GameManager acts as the executive class in this game. it has the main gameloop, stores the players, and ends the game when nescessary.
     */
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
@@ -25,12 +27,8 @@ class gameManager
 		int turnCounter;
 
   private:
-
-
-      Animations animations;
-
-
-
+      
+    Animations animations;
     int numOfShips = 1;/**holds number of ships that each player will have. defaults to 0*/
     Player p1;/**first player */
     Player p2;/**second player*/

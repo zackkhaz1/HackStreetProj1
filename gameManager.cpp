@@ -1,3 +1,9 @@
+/**
+@author Hunter Cobb,Brandon Wheat,William Burdick, Zackariah Khazraeinazmpour, Justin Khounsombath, Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+@date 10/16/19
+@file gameManager.h
+@brief implements gameManager.h methods
+*/
 #include "gameManager.h"
 #include "Animations.h"
 #include <cctype>

@@ -1,3 +1,9 @@
+/**
+ @author Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+ @date 10/16/19
+ @file score.h
+ @brief methods to hold score and initials
+*/
 #ifndef SCORE_H
 #define SCORE_H
 #include <fstream>

@@ -1,3 +1,9 @@
+/**
+ @author Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+ @date 10/16/19
+ @file scoreBoard.h
+ @brief methods to read/write to scoreboard file and print scoreboard
+*/
 #ifndef SCOREBOARD_H
 #define SCOREBOARD_H
 #include "score.h"

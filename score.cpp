@@ -1,3 +1,9 @@
+/**
+ @author Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+ @date 10/16/19
+ @file score.cpp
+ @brief implements score.h methods
+*/
 #include "score.h"
 
 score::score(int scoreTotal){

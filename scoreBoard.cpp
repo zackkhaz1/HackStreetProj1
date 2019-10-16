@@ -1,3 +1,9 @@
+/**
+ @author Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+ @date 10/16/19
+ @file scoreBoard.cpp
+ @brief writes and reads from scoreBoard.txt to print scoreboard
+*/
 #include "scoreBoard.h"
 
 int scoreBoard::getTxtSize(){

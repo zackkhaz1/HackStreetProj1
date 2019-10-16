@@ -1,6 +1,8 @@
-/** @brief Player class that acts as a storage device for the two players in the gameManager class. holds the ships and boards of each player and fires shots.
-    @author Brandon Wheat,William Burdick,Hunter Cobb, Zackariah Khazraeinazmpour, Justin Khounsombath
-    @date September 22, 2019
+/**
+    @author Brandon Wheat,William Burdick,Hunter Cobb, Zackariah Khazraeinazmpour, Justin Khounsombath, Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+    @date 10/16/19
+    @file Player.h
+    @brief Player class that acts as a storage device for the two players in the gameManager class, holds the ships and boards of each player and fires shots, and can be used for AI
     */
 #include "Board.h"
 #ifndef PLAYER_H

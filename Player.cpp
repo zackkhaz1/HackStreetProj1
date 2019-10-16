@@ -1,3 +1,9 @@
+/**
+@author Brandon Wheat,William Burdick,Hunter Cobb, Zackariah Khazraeinazmpour, Justin Khounsombath, Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+@date 10/16/19
+@file Player.h
+@brief Implements methods in Player.h
+*/
 #include "Player.h"
 #include "Animations.h"
 Player::Player()
