@@ -1,3 +1,9 @@
+/**
+ @author Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+ @date 10/16/19
+ @file Animations.cpp
+ @brief Animation designs implemented
+*/
 #include "Animations.h"
 #include <unistd.h>
 #include <stdlib.h>

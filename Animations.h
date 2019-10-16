@@ -1,3 +1,10 @@
+/**
+ @author Runtime Terrors (Abby Davidow, Anissa Khan, Jacob Swearingen, Grant Schnettgoecke, Chongzhi Gao)
+ @date 10/16/19
+ @file Animations.h
+ @brief Methods that call specific animations
+*/
+
 #ifndef ANIMATIONS_H
 #define ANIMATIONS_H
 
