@@ -209,7 +209,6 @@ bool Player::fireShot(int row, int col, Player &target)
     {
       enemyBoard.setPos(col,row,'m');//m represents a miss that landed in water.
       animations.playMiss();
-                score = score - 50;
       return false;
     }
     return false;

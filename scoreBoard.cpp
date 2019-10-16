@@ -54,7 +54,7 @@ void scoreBoard::writeNewScore(score score){
 	ofstream myfile;
 	myfile.open("scoreBoard.txt", ios_base::app);
 	myfile << score.getInitials() << "			" << score.getScoreTotal()<<endl;
-	cout << "|            "<<score.getInitials() << "            |            " << score.getScoreTotal()<<"           |"<<endl;
+	cout << "             "<<score.getInitials() << "                         " << score.getScoreTotal()<<"           "<<endl;
 	myfile.close();
 }
 
@@ -72,5 +72,4 @@ void scoreBoard::printScoreBoard(vector<score> highScores){
 		for(int i = 0; i < highScores.size(); i++){
 			writeNewScore(highScores[i]);
 		}
-        cout << "--------------------------------------------------------\n";
 }
