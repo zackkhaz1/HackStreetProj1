@@ -6,7 +6,6 @@
 */
 #include "Animations.h"
 #include <unistd.h>
-#include <stdlib.h>
 
 Animations::Animations(){
 
