@@ -251,6 +251,15 @@ Player::Player(int shipNums, int aiDifficulty, string aiName)
         Ship tempShip(i);
         ownShips[i-1] = tempShip;
     }
+    
+    for(int i=0; i<8; i++)
+    {
+        for(int j=0; j<8; j++)
+        {
+            aiMediumArray[i][j]="";
+        }
+    }
+    
     //now we need to place the ships
     placeAiShips();
 }
@@ -529,10 +538,6 @@ string Player::aiEasy()
     //delete [] arrOfShots;
     return(aiShot);
 }
-string Player::aiMedium(Board enemyBoard)
-{
-    return("");
-}
 
 /*
  *Hit ship every turn
@@ -639,12 +644,12 @@ string Player::NumtoStr18(int x)
 
 string Player::aiMedium(Board enemyBoard)
 {
-   //checks if ship is snuck and clears of 1's
+   //checks if ship is sunk and clears of 1's
   bool shipSunk = true;
   for(int i = 0;i < 8;i++){
     for(int j = 0;j < 8;j++){
       if(aiMediumArray[i][j] == "1" && enemyBoard.getPos(i, j) == 's'){
-        shipSunk == false;
+        shipSunk = false;
       }
     }
   }
