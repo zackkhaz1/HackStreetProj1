@@ -256,3 +256,7 @@ void Player::setShipHasBeenSunk(bool value){
 bool Player::getShipHasBeenSunk(){
     return shipHasBeenSunk;
 }
+
+int Player::getScore(){
+		return score;
+}

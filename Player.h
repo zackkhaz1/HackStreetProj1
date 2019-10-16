@@ -44,13 +44,9 @@ class Player
         */
     void receiveHit(int xPos, int yPos);
     string getName();
-
-      void setShipHasBeenSunk(bool value);
-      bool getShipHasBeenSunk();
-
-		int getScore(){
-			return score;
-		}
+    void setShipHasBeenSunk(bool value);
+    bool getShipHasBeenSunk();
+		int getScore();
 
 
   private:
@@ -60,6 +56,6 @@ class Player
     Ship* ownShips; /**Points toward array of ships owned by the player*/
     string namee;
 		int score;
-      bool shipHasBeenSunk;
+    bool shipHasBeenSunk;
   };
 #endif
