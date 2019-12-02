@@ -1,3 +1,9 @@
+/**
+@author Zackariah Khazraeinazmpour,Hunter Cobb, Brandon Wheat, Justin Khounsombath, William Burdick
+@date September 22, 2019
+@file Board.h
+@brief Implements Board.h methods
+*/
 #include "Board.h"
 #include <iostream>
 using namespace std;
@@ -17,7 +23,6 @@ Board::Board()
     }
   }
 }
-
 void Board::setPos(int xPos,int yPos, char val)
   {
     mapp[xPos][yPos] = val;

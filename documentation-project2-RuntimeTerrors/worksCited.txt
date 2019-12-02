@@ -1,0 +1,6 @@
+Works Cited
+
+Where: Animations.cpp
+Library: unistd.h
+Function: sleep
+Author: The Open Group

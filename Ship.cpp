@@ -1,5 +1,12 @@
+/**
+@author William Burdick,Hunter Cobb, Brandon Wheat, Zackariah Khazraeinazmpour, Justin Khounsombath
+@date September 22, 2019
+@file Ship.cpp
+@brief Implements Ship.h methods
+*/
 #include "Ship.h"
 #include <iostream>
+#include <string>
 using namespace std;
 Ship::Ship()
 {
@@ -8,7 +15,7 @@ Ship::Ship()
 Ship::Ship(int ShipSize)
 {
 	size = ShipSize;
-	orientation = 'h';
+	orientation = "h";
 	sunk = false;
 	hits = 0;
 }
@@ -19,12 +26,12 @@ int Ship::getSize()
 }
 
 
-void Ship::setOrientation(char vh) //Vertical/Horizontal
+void Ship::setOrientation(string vh) //Vertical/Horizontal
 {
 	orientation = vh;
 }
 
-char Ship::getOrientation()
+string Ship::getOrientation()
 {
 	return(orientation);
 }
@@ -42,7 +49,7 @@ bool Ship::isSunk()
 void Ship::addHit()
 {
 	hits = hits+1;
-	if(hits >= size){
+	if(hits >= size*2){
 			sunk = true;
 	}
 }
@@ -54,7 +61,7 @@ int Ship::getHits()
 
 void Ship::setPositions(int xPos, int yPos)
 {
-	if(orientation == 'h') //If 'h' fill arrays with of ship in the horizontal direction
+	if(orientation == "h") //If 'h' fill arrays with of ship in the horizontal direction
 	{
 
 		for(int i = 0; i < size; i++)
@@ -63,7 +70,7 @@ void Ship::setPositions(int xPos, int yPos)
 			yPositions[i] = yPos;
 
 		}
-	}else if(orientation == 'v')//If 'v' fill arrays with of ship in the vertical direction
+	}else if(orientation == "v")//If 'v' fill arrays with of ship in the vertical direction
 	{
 		for(int i = 0; i < 5; i++)
 		{

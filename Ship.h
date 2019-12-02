@@ -1,10 +1,12 @@
-/** @brief Ship class that handles all cases of ships being shot. Is used by player to store ship information as a type of data structure.
+/**
     @author William Burdick,Hunter Cobb, Brandon Wheat, Zackariah Khazraeinazmpour, Justin Khounsombath
     @date September 22, 2019
+    @file Ship.h
+    @brief Ship class that handles all cases of ships being shot. Is used by player to store ship information as a type of data structure.
     */
 #ifndef SHIP_H
 #define SHIP_H
-
+#include <string>
 using namespace std;
 class Ship
 {
@@ -28,11 +30,11 @@ public:
   /**Set a position on the board.
       @param vh - char to determine whether the ship will be vertical('v') or horizontal('h')
       */
-  void setOrientation(char vh);
+  void setOrientation(string vh);
   /**
       @return the orientation of the ship(vertical or Horizontal)
       */
-  char getOrientation();
+  string getOrientation();
   /**Sets whether the ship is sunk or not
     @param tf - boolean value of whether or not the ship is completely sunk.
       */
@@ -70,7 +72,7 @@ public:
 
 private:
   int size;/**size of the ship*/
-  char orientation;/**Orientation of the ship*/
+  string orientation;/**Orientation of the ship*/
   bool sunk;/**Boolean that stores whether or not the ship is sunk*/
   int hits;/**stores the number of hits the ship has taken.*/
   int xPositions[5]; /**Points to an array of the X postions of each segment of the ship*/
